@@ -18,11 +18,13 @@ class ViewController: UIViewController {
 		
 		
 		let note = Note(title: "Notes", content: "text", color: .red, importance: .normal, destructionDate: Date())
+		let note2 = Note(title: "Notes2", content: "text", color: .red, importance: .normal, destructionDate: Date())
 		
-		let json = note.json
-		let parse = Note.parse(json: json)
-		print(parse ?? "")
-		
+		let filenotebook = FileNotebook()
+		filenotebook.add(note)
+		filenotebook.add(note2)
+		filenotebook.remove(with: note.uid)
+		filenotebook.saveToFile()
 		
 	}
 }
