@@ -16,6 +16,14 @@ class ViewController: UIViewController {
 		title = "Notes"
 		view.backgroundColor = .white
 		
+		
+		let note = Note(title: "Notes", content: "text", color: .red, importance: .normal, destructionDate: Date())
+		
+		let json = note.json
+		let parse = Note.parse(json: json)
+		print(parse ?? "")
+		
+		
 	}
 }
 

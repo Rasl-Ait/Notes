@@ -12,6 +12,8 @@
 		DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC92EB9E230A7AC8003F5A36 /* Assets.xcassets */; };
 		DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC92EBA0230A7AC8003F5A36 /* LaunchScreen.storyboard */; };
 		DC985178230A9A9200884885 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985177230A9A9200884885 /* Note.swift */; };
+		DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985179230A9ACB00884885 /* NoteExtensions.swift */; };
+		DC98517D230A9AF100884885 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98517C230A9AF100884885 /* UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		DC92EBA1230A7AC8003F5A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC92EBA3230A7AC8003F5A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC985177230A9A9200884885 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		DC985179230A9ACB00884885 /* NoteExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtensions.swift; sourceTree = "<group>"; };
+		DC98517C230A9AF100884885 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 		DC92EBA9230A7CB9003F5A36 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DC98517B230A9ADB00884885 /* Extensions */,
 				DC985176230A9A7600884885 /* Model */,
 				DC92EBAC230A7D50003F5A36 /* Screens */,
 				DC92EBAB230A7D3B003F5A36 /* Application */,
@@ -100,8 +105,17 @@
 			isa = PBXGroup;
 			children = (
 				DC985177230A9A9200884885 /* Note.swift */,
+				DC985179230A9ACB00884885 /* NoteExtensions.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC98517B230A9ADB00884885 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DC98517C230A9AF100884885 /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,8 +189,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */,
+				DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
 				DC985178230A9A9200884885 /* Note.swift in Sources */,
+				DC98517D230A9AF100884885 /* UIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
