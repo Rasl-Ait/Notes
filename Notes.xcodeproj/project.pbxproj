@@ -11,6 +11,7 @@
 		DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92EB99230A7AC7003F5A36 /* ViewController.swift */; };
 		DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC92EB9E230A7AC8003F5A36 /* Assets.xcassets */; };
 		DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC92EBA0230A7AC8003F5A36 /* LaunchScreen.storyboard */; };
+		DC985178230A9A9200884885 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985177230A9A9200884885 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		DC92EB9E230A7AC8003F5A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC92EBA1230A7AC8003F5A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC92EBA3230A7AC8003F5A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC985177230A9A9200884885 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 		DC92EBA9230A7CB9003F5A36 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DC985176230A9A7600884885 /* Model */,
 				DC92EBAC230A7D50003F5A36 /* Screens */,
 				DC92EBAB230A7D3B003F5A36 /* Application */,
 			);
@@ -91,6 +94,14 @@
 				DC92EB99230A7AC7003F5A36 /* ViewController.swift */,
 			);
 			path = Screens;
+			sourceTree = "<group>";
+		};
+		DC985176230A9A7600884885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC985177230A9A9200884885 /* Note.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 			files = (
 				DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
+				DC985178230A9A9200884885 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
