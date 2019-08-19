@@ -7,22 +7,31 @@
 //
 
 import UIKit
+import CocoaLumberjack
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+		
+		setupLogger()
 		
 		window = UIWindow(frame: UIScreen.main.bounds)
 		window?.makeKeyAndVisible()
 		let navigatorController =  UINavigationController(rootViewController: ViewController())
 		window?.rootViewController = navigatorController
 		
-		
 		return true
+	}
+	
+	private func setupLogger() {
+		DDLog.add(DDOSLogger.sharedInstance) // Uses os_log
+		let fileLogger: DDFileLogger = DDFileLogger()
+		fileLogger.rollingFrequency = TimeInterval(60 * 60 * 24)
+		fileLogger.logFileManager.maximumNumberOfLogFiles = 7
+		DDLog.add(fileLogger)
 	}
 
 	func applicationWillResignActive(_ application: UIApplication) {

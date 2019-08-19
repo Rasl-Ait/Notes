@@ -26,14 +26,14 @@ class NoteExtensionTests: XCTestCase {
 	}
 	
 	func testNotCreateNoteFromIncorrectJson() {
-		let note = Note.parse(json: ["SomeString": UIColor.white])
+		let note = Note.parse(json: ["colorString": UIColor.white])
 		XCTAssertNil(note)
 	}
 	
 	func testNoteWithCorrectValidDateFromJson() {
 		
 		guard let note = Note.parse(json: otherSut.json) else {
-			XCTFail("Note is nil")
+			XCTFail("nil")
 			return
 		}
 		
@@ -43,7 +43,7 @@ class NoteExtensionTests: XCTestCase {
 	func testCreateNoteFromJsonWithCorrectParam() {
 		
 		guard let note = Note.parse(json: otherSut.json) else {
-			XCTFail("Note is nil")
+			XCTFail("nil")
 			return
 		}
 		
