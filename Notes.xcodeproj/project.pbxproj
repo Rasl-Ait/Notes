@@ -15,7 +15,21 @@
 		DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985179230A9ACB00884885 /* NoteExtensions.swift */; };
 		DC98517D230A9AF100884885 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98517C230A9AF100884885 /* UIColor.swift */; };
 		DC98517F230A9B7100884885 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98517E230A9B7100884885 /* FileNotebook.swift */; };
+		DC985187230AAA3F00884885 /* NotesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985186230AAA3F00884885 /* NotesTests.swift */; };
+		DC985190230AB06000884885 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98518F230AB06000884885 /* NoteTests.swift */; };
+		DC985193230ABFE000884885 /* FileNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985192230ABFE000884885 /* FileNotebookTests.swift */; };
+		DC985197230AE74000884885 /* NoteExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985196230AE74000884885 /* NoteExtensionTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DC985189230AAA3F00884885 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DC92EB8C230A7AC7003F5A36 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DC92EB93230A7AC7003F5A36;
+			remoteInfo = Notes;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		DC92EB94230A7AC7003F5A36 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,10 +42,23 @@
 		DC985179230A9ACB00884885 /* NoteExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtensions.swift; sourceTree = "<group>"; };
 		DC98517C230A9AF100884885 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		DC98517E230A9B7100884885 /* FileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
+		DC985184230AAA3F00884885 /* NotesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC985186230AAA3F00884885 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
+		DC985188230AAA3F00884885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC98518F230AB06000884885 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
+		DC985192230ABFE000884885 /* FileNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileNotebookTests.swift; path = "../New Group/FileNotebookTests.swift"; sourceTree = "<group>"; };
+		DC985196230AE74000884885 /* NoteExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtensionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		DC92EB91230A7AC7003F5A36 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC985181230AAA3F00884885 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -45,6 +72,7 @@
 			isa = PBXGroup;
 			children = (
 				DC92EB96230A7AC7003F5A36 /* Notes */,
+				DC985185230AAA3F00884885 /* NotesTests */,
 				DC92EB95230A7AC7003F5A36 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -53,6 +81,7 @@
 			isa = PBXGroup;
 			children = (
 				DC92EB94230A7AC7003F5A36 /* Notes.app */,
+				DC985184230AAA3F00884885 /* NotesTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -121,6 +150,26 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		DC985185230AAA3F00884885 /* NotesTests */ = {
+			isa = PBXGroup;
+			children = (
+				DC985186230AAA3F00884885 /* NotesTests.swift */,
+				DC98518E230AB04200884885 /* Model */,
+				DC985188230AAA3F00884885 /* Info.plist */,
+			);
+			path = NotesTests;
+			sourceTree = "<group>";
+		};
+		DC98518E230AB04200884885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DC985192230ABFE000884885 /* FileNotebookTests.swift */,
+				DC98518F230AB06000884885 /* NoteTests.swift */,
+				DC985196230AE74000884885 /* NoteExtensionTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -141,6 +190,24 @@
 			productReference = DC92EB94230A7AC7003F5A36 /* Notes.app */;
 			productType = "com.apple.product-type.application";
 		};
+		DC985183230AAA3F00884885 /* NotesTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DC98518B230AAA3F00884885 /* Build configuration list for PBXNativeTarget "NotesTests" */;
+			buildPhases = (
+				DC985180230AAA3F00884885 /* Sources */,
+				DC985181230AAA3F00884885 /* Frameworks */,
+				DC985182230AAA3F00884885 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DC98518A230AAA3F00884885 /* PBXTargetDependency */,
+			);
+			name = NotesTests;
+			productName = NotesTests;
+			productReference = DC985184230AAA3F00884885 /* NotesTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -153,6 +220,10 @@
 				TargetAttributes = {
 					DC92EB93230A7AC7003F5A36 = {
 						CreatedOnToolsVersion = 10.3;
+					};
+					DC985183230AAA3F00884885 = {
+						CreatedOnToolsVersion = 10.3;
+						TestTargetID = DC92EB93230A7AC7003F5A36;
 					};
 				};
 			};
@@ -170,6 +241,7 @@
 			projectRoot = "";
 			targets = (
 				DC92EB93230A7AC7003F5A36 /* Notes */,
+				DC985183230AAA3F00884885 /* NotesTests */,
 			);
 		};
 /* End PBXProject section */
@@ -181,6 +253,13 @@
 			files = (
 				DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */,
 				DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DC985182230AAA3F00884885 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,7 +279,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DC985180230AAA3F00884885 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DC985193230ABFE000884885 /* FileNotebookTests.swift in Sources */,
+				DC985197230AE74000884885 /* NoteExtensionTests.swift in Sources */,
+				DC985187230AAA3F00884885 /* NotesTests.swift in Sources */,
+				DC985190230AB06000884885 /* NoteTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DC98518A230AAA3F00884885 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DC92EB93230A7AC7003F5A36 /* Notes */;
+			targetProxy = DC985189230AAA3F00884885 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		DC92EBA0230A7AC8003F5A36 /* LaunchScreen.storyboard */ = {
@@ -364,6 +462,44 @@
 			};
 			name = Release;
 		};
+		DC98518C230AAA3F00884885 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NotesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rasldev.NotesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notes.app/Notes";
+			};
+			name = Debug;
+		};
+		DC98518D230AAA3F00884885 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = NotesTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rasldev.NotesTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Notes.app/Notes";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -381,6 +517,15 @@
 			buildConfigurations = (
 				DC92EBA7230A7AC8003F5A36 /* Debug */,
 				DC92EBA8230A7AC8003F5A36 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DC98518B230AAA3F00884885 /* Build configuration list for PBXNativeTarget "NotesTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC98518C230AAA3F00884885 /* Debug */,
+				DC98518D230AAA3F00884885 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
