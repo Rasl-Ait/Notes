@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		42EBF8021C6B71FF140FC9C2 /* libPods-NotesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E531F577C52261B4309AF65E /* libPods-NotesTests.a */; };
 		7F76AF6D8BAA8CDF014B82A2 /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA214A4EE76DDA129F04DAC /* libPods-Notes.a */; };
+		DC1F39C2230D988A0092968D /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39C1230D988A0092968D /* PickerView.swift */; };
+		DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F0230AF71500E69B1F /* EditViewController.swift */; };
+		DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3D59F1230AF71500E69B1F /* EditViewController.xib */; };
+		DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */; };
+		DC3D59FB230AF85200E69B1F /* CustomTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F9230AF85200E69B1F /* CustomTextView.swift */; };
+		DC3D59FC230AF85200E69B1F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59FA230AF85200E69B1F /* CustomTextField.swift */; };
+		DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59FD230AF9BF00E69B1F /* UIView.swift */; };
+		DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */; };
+		DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1A230BCFE000339EF0 /* ColorView.swift */; };
+		DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */; };
+		DC827E21230BE4DF00339EF0 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E20230BE4DF00339EF0 /* Typealias.swift */; };
+		DC827E24230BE98100339EF0 /* ColorPalleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E23230BE98100339EF0 /* ColorPalleteView.swift */; };
+		DC827E28230BE9E600339EF0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E26230BE9E600339EF0 /* ColorPickerViewController.swift */; };
+		DC827E29230BE9E600339EF0 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC827E27230BE9E600339EF0 /* ColorPickerViewController.xib */; };
+		DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E2A230BEB3300339EF0 /* ContainerView.swift */; };
+		DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E2C230C0FA500339EF0 /* SightView.swift */; };
 		DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92EB97230A7AC7003F5A36 /* AppDelegate.swift */; };
 		DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92EB99230A7AC7003F5A36 /* ViewController.swift */; };
 		DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC92EB9E230A7AC8003F5A36 /* Assets.xcassets */; };
@@ -39,6 +55,22 @@
 		CA63510736DB91CDC0458309 /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
 		CF72DE145CBD4ED5D7975F11 /* Pods-NotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesTests.release.xcconfig"; path = "Target Support Files/Pods-NotesTests/Pods-NotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		DAA214A4EE76DDA129F04DAC /* libPods-Notes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1F39C1230D988A0092968D /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		DC3D59F0230AF71500E69B1F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
+		DC3D59F1230AF71500E69B1F /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
+		DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerVIew.swift; sourceTree = "<group>"; };
+		DC3D59F9230AF85200E69B1F /* CustomTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextView.swift; sourceTree = "<group>"; };
+		DC3D59FA230AF85200E69B1F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		DC3D59FD230AF9BF00E69B1F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Intialization.swift"; sourceTree = "<group>"; };
+		DC827E1A230BCFE000339EF0 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
+		DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СheckmarkView.swift"; sourceTree = "<group>"; };
+		DC827E20230BE4DF00339EF0 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
+		DC827E23230BE98100339EF0 /* ColorPalleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPalleteView.swift; sourceTree = "<group>"; };
+		DC827E26230BE9E600339EF0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		DC827E27230BE9E600339EF0 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		DC827E2A230BEB3300339EF0 /* ContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerView.swift; sourceTree = "<group>"; };
+		DC827E2C230C0FA500339EF0 /* SightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightView.swift; sourceTree = "<group>"; };
 		DC92EB94230A7AC7003F5A36 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC92EB97230A7AC7003F5A36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC92EB99230A7AC7003F5A36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +130,79 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		DC3D59F4230AF78600E69B1F /* Custom Views */ = {
+			isa = PBXGroup;
+			children = (
+				DC827E22230BE96900339EF0 /* ColorPicker */,
+				DC827E1C230BDC8900339EF0 /* Checkmark */,
+				DC827E19230BCFBD00339EF0 /* Color */,
+				DC3D59F8230AF83100E69B1F /* Text Filed and Text View */,
+				DC3D59F5230AF7AC00E69B1F /* Edit Container */,
+			);
+			path = "Custom Views";
+			sourceTree = "<group>";
+		};
+		DC3D59F5230AF7AC00E69B1F /* Edit Container */ = {
+			isa = PBXGroup;
+			children = (
+				DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */,
+			);
+			path = "Edit Container";
+			sourceTree = "<group>";
+		};
+		DC3D59F8230AF83100E69B1F /* Text Filed and Text View */ = {
+			isa = PBXGroup;
+			children = (
+				DC3D59FA230AF85200E69B1F /* CustomTextField.swift */,
+				DC3D59F9230AF85200E69B1F /* CustomTextView.swift */,
+			);
+			path = "Text Filed and Text View";
+			sourceTree = "<group>";
+		};
+		DC827E19230BCFBD00339EF0 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				DC827E1A230BCFE000339EF0 /* ColorView.swift */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		DC827E1C230BDC8900339EF0 /* Checkmark */ = {
+			isa = PBXGroup;
+			children = (
+				DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */,
+			);
+			path = Checkmark;
+			sourceTree = "<group>";
+		};
+		DC827E1F230BE49B00339EF0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				DC827E20230BE4DF00339EF0 /* Typealias.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DC827E22230BE96900339EF0 /* ColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				DC827E2C230C0FA500339EF0 /* SightView.swift */,
+				DC827E23230BE98100339EF0 /* ColorPalleteView.swift */,
+				DC827E2A230BEB3300339EF0 /* ContainerView.swift */,
+				DC1F39C1230D988A0092968D /* PickerView.swift */,
+			);
+			path = ColorPicker;
+			sourceTree = "<group>";
+		};
+		DC827E25230BE9CD00339EF0 /* Color Picker */ = {
+			isa = PBXGroup;
+			children = (
+				DC827E26230BE9E600339EF0 /* ColorPickerViewController.swift */,
+				DC827E27230BE9E600339EF0 /* ColorPickerViewController.xib */,
+			);
+			path = "Color Picker";
+			sourceTree = "<group>";
+		};
 		DC92EB8B230A7AC7003F5A36 = {
 			isa = PBXGroup;
 			children = (
@@ -130,8 +235,10 @@
 		DC92EBA9230A7CB9003F5A36 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DC92EBAB230A7D3B003F5A36 /* Application */,
+				DC827E1F230BE49B00339EF0 /* Protocols */,
 				DC98517B230A9ADB00884885 /* Extensions */,
+				DC3D59F4230AF78600E69B1F /* Custom Views */,
+				DC92EBAB230A7D3B003F5A36 /* Application */,
 				DC985176230A9A7600884885 /* Model */,
 				DC92EBAC230A7D50003F5A36 /* Screens */,
 			);
@@ -159,7 +266,9 @@
 		DC92EBAC230A7D50003F5A36 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC827E25230BE9CD00339EF0 /* Color Picker */,
 				DC92EB99230A7AC7003F5A36 /* ViewController.swift */,
+				DC985198230AF63400884885 /* Edit */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -177,6 +286,8 @@
 		DC98517B230A9ADB00884885 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */,
+				DC3D59FD230AF9BF00E69B1F /* UIView.swift */,
 				DC98517C230A9AF100884885 /* UIColor.swift */,
 			);
 			path = Extensions;
@@ -200,6 +311,15 @@
 				DC985196230AE74000884885 /* NoteExtensionTests.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		DC985198230AF63400884885 /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+				DC3D59F0230AF71500E69B1F /* EditViewController.swift */,
+				DC3D59F1230AF71500E69B1F /* EditViewController.xib */,
+			);
+			path = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -285,7 +405,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */,
 				DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */,
+				DC827E29230BE9E600339EF0 /* ColorPickerViewController.xib in Resources */,
 				DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,10 +475,24 @@
 			files = (
 				DC98517F230A9B7100884885 /* FileNotebook.swift in Sources */,
 				DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */,
+				DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */,
+				DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */,
+				DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */,
+				DC827E21230BE4DF00339EF0 /* Typealias.swift in Sources */,
+				DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */,
+				DC3D59FB230AF85200E69B1F /* CustomTextView.swift in Sources */,
+				DC1F39C2230D988A0092968D /* PickerView.swift in Sources */,
 				DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */,
+				DC827E24230BE98100339EF0 /* ColorPalleteView.swift in Sources */,
+				DC827E28230BE9E600339EF0 /* ColorPickerViewController.swift in Sources */,
+				DC3D59FC230AF85200E69B1F /* CustomTextField.swift in Sources */,
+				DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
 				DC985178230A9A9200884885 /* Note.swift in Sources */,
+				DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */,
 				DC98517D230A9AF100884885 /* UIColor.swift in Sources */,
+				DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */,
+				DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

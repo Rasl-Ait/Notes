@@ -43,7 +43,8 @@ class FileNotebook {
 	// Функция для удаления заметки по индексу
 	public func remove(with uid: String) {
 		guard let index = firstIndex(with: uid) else {
-			DDLogError("Failed to delete note: note with uid=\(uid) doesn't exists")
+			DDLogError(
+				"Failed to delete note: note with uid=\(uid) doesn't exists")
 			return
 		}
 		
@@ -63,8 +64,13 @@ class FileNotebook {
 				DDLogError("Failed to get path")
 				return
 		}
-		guard fm.fileExists(atPath: directory.path, isDirectory: &isDir) || isDir.boolValue == false else { return }
-		try? fm.createDirectory(at: directory, withIntermediateDirectories: true, attributes: nil)
+		guard fm.fileExists(
+			atPath: directory.path, isDirectory: &isDir) ||
+			isDir.boolValue == false else { return }
+		
+		try? fm.createDirectory(at: directory,
+														withIntermediateDirectories: true,
+														attributes: nil)
 		
 		let json = notes.map{ $0.json}
 		
@@ -86,7 +92,8 @@ class FileNotebook {
 		
 		do {
 			let data = try Data(contentsOf: fileURL, options: [])
-			guard let json = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] else {
+			guard let json = try JSONSerialization.jsonObject(with: data,
+																												options: []) as? [[String:Any]] else {
 				DDLogError("Failed to decode notes from \(fileURL)")
 				return
 			}
