@@ -24,18 +24,23 @@ class ColorPickerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		title = "Color Picker"
-		update()
 		
 		colorPickerView.colorDidChange = { [weak self ] color in
 			guard let `self` = self else { return }
 			self.color = color
-			
-			self.containerView.setBackgroundColorViewAndColorLabel(
-				self.color, text:
-				color.hexString,
-				value: self.value)
-			
+			DispatchQueue.main.async {
+				self.containerView.setBackgroundColorViewAndColorLabel(
+					color, text:
+					color.hexString,
+					value: self.value
+				)
+			}
 		}
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		update()
 	}
 	
 	private func update() {

@@ -13,6 +13,10 @@ class EditViewController: UIViewController {
 	@IBOutlet weak var editContainerView: EditContainerView!
 	
 	private var color: UIColor?
+	private var uid: String?
+	
+	var note: Note?
+	var fileNotebook: FileNotebook?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -45,14 +49,23 @@ class EditViewController: UIViewController {
 			name: UIResponder.keyboardWillChangeFrameNotification,
 			object: nil
 		)
+		saveNote()
 	}
 }
 
 // MARK: - Private extension EditViewController
 private extension EditViewController {
 	func setup() {
+		title = note != nil ? "Редактирование" : "Новая заметка"
 		addTapGesture()
+		uid = UUID().uuidString
 		scrollView.keyboardDismissMode = .interactive
+		updateUI()
+		
+		editContainerView.colorDidChange = { [weak self] color in
+			guard let `self` = self else { return }
+			self.color = color
+		}
 		
 		editContainerView.colorPickerViewClicked = { [weak self] in
 			guard let `self` = self else { return }
@@ -65,6 +78,57 @@ private extension EditViewController {
 		colorPickerController.delegate = self
 		colorPickerController.color = editContainerView.bColor
 		self.navigationController?.pushViewController(colorPickerController, animated: true)
+	}
+	
+	func updateUI() {
+		editContainerView.set(
+			title: note?.title ?? "",
+			content: note?.content ?? editContainerView.contentText!,
+			color: note?.color ?? editContainerView.bColor, date:
+			note?.destructionDate
+		)
+	}
+	
+	func updateNote() {
+		guard
+			let note = note,
+			let title = editContainerView.titleText, !title.isEmpty,
+			let content = editContainerView.contentText, !content.isEmpty
+			else { return }
+		
+		let updateNote = Note(
+			uid: note.uid,
+			title: title,
+			content: content,
+			color: self.color ?? note.color,
+			importance: .normal,
+			destructionDate: editContainerView.date
+		)
+		
+		fileNotebook?.add(updateNote)
+		fileNotebook?.saveToFile()
+	}
+	
+	func newNote() {
+		guard
+			let uid = uid,
+			let title = editContainerView.titleText, !title.isEmpty,
+			let content = editContainerView.contentText, !content.isEmpty
+			else { return }
+		
+		let note = Note(uid: uid, title: title,
+										content: content,
+										color: color ?? .white ,
+										importance: .normal,
+										destructionDate: editContainerView.date
+		)
+		
+		fileNotebook?.add(note)
+		fileNotebook?.saveToFile()
+	}
+	
+	func saveNote() {
+		note != nil ? updateNote() : newNote()
 	}
 	
 	// MARK: - Actions
@@ -115,6 +179,7 @@ private extension EditViewController {
 
 extension EditViewController: ColorPickerViewControllerDelegate {
 	func handleColor(color: UIColor) {
+		self.color = color
 		editContainerView.setBackgroundColor(color: color)
 	}
 }

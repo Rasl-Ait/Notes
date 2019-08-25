@@ -14,18 +14,6 @@ class FileNotebook {
 	
 	private let filename = "notes.json"
 	private let fm = FileManager.default
-	private let directory = FileManager.default.urls(
-		for: .cachesDirectory,
-		in: .userDomainMask).first
-	
-	private var fileURL: URL? {
-		guard let directory = directory else {
-			DDLogError("directory didn't return any directories")
-			return nil
-			
-		}
-		return directory.appendingPathComponent(filename)
-	}
 	
 	// Функция для добавления заметки
 	public func add(_ note: Note) {
@@ -56,27 +44,56 @@ class FileNotebook {
 		return notes.firstIndex(where: {$0.uid == uid})
 	}
 	
+	private func getCachesDirectory() -> URL {
+		let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
+		return paths[0]
+	}
+	
+	private func getfileURL(filename: String) throws -> URL {
+		return getCachesDirectory().appendingPathComponent(filename)
+	}
+	
+	private func directoryExists(atPath filePath: String)-> Bool {
+		var isDir = ObjCBool(true)
+		return fm.fileExists(atPath: filePath, isDirectory: &isDir )
+	}
+	
+	private func createDirectory(withFolderName name: String)-> Bool {
+		let finalPath = getCachesDirectory().appendingPathComponent(name)
+		return directoryExists(atPath: finalPath.path)
+	}
+	
+	private func dataJson() -> Data? {
+		let json = notes.map{ $0.json }
+		
+		do {
+			let data = try JSONSerialization.data(withJSONObject: json, options: [])
+			return data
+		} catch {
+			DDLogError("Failed to encode notes from \(json)")
+		}
+		return nil
+	}
+	
 	// Функция для сохранения заметок в FileManager
 	public func saveToFile() {
-		var isDir: ObjCBool = false
-		guard let fileURL = fileURL,
-			let directory = directory else {
-				DDLogError("Failed to get path")
-				return
+		let isDir: ObjCBool = false
+		let directory = getCachesDirectory()
+		guard let fileURL = try? getfileURL(filename: filename) else {
+			DDLogError("Failed to get path")
+			return
 		}
-		guard fm.fileExists(
-			atPath: directory.path, isDirectory: &isDir) ||
+		
+		guard createDirectory(withFolderName: filename) ||
 			isDir.boolValue == false else { return }
 		
 		try? fm.createDirectory(at: directory,
 														withIntermediateDirectories: true,
 														attributes: nil)
 		
-		let json = notes.map{ $0.json}
-		
 		do {
-			let data = try JSONSerialization.data(withJSONObject: json, options: [])
-			fm.createFile(atPath: fileURL.path, contents: data, attributes: nil)
+			let data = dataJson()
+			try data?.write(to: fileURL)
 			DDLogInfo("Saved \(notes.count) notes")
 		} catch {
 			DDLogError("Failed to create file \(error.localizedDescription)")
@@ -85,17 +102,17 @@ class FileNotebook {
 	
 	// Функция для загрузки заметок из FileManager
 	public func loadFromFile() {
-		guard let fileURL = fileURL else {
+		guard let fileURL = try? getfileURL(filename: filename) else {
 			DDLogError("Failed to get path")
 			return
 		}
 		
 		do {
 			let data = try Data(contentsOf: fileURL, options: [])
-			guard let json = try JSONSerialization.jsonObject(with: data,
-																												options: []) as? [[String:Any]] else {
-				DDLogError("Failed to decode notes from \(fileURL)")
-				return
+			guard let json = try JSONSerialization.jsonObject(with:
+				data, options: []) as? [[String:Any]] else {
+					DDLogError("Failed to decode notes from \(fileURL)")
+					return
 			}
 			
 			notes = json.compactMap {

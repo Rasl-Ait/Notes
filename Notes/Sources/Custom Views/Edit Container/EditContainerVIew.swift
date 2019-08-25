@@ -11,7 +11,6 @@ import UIKit
 let insets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
 
 class EditContainerView: UIView {
-	// Text
 	private let titleTextField = CustomTextField(insets: insets)
 	private let contentTextView = CustomTextView()
 	
@@ -33,8 +32,22 @@ class EditContainerView: UIView {
 	
 	//
 	var colorPickerViewClicked: VoidClosure?
+	var colorDidChange: ItemClosure<UIColor>?
 	
-	var bColor = UIColor.green
+	var bColor = UIColor.white
+	
+	var titleText: String? {
+		return titleTextField.text
+	}
+	
+	var contentText: String? {
+		return contentTextView.text
+	}
+	
+	var date: Date? {
+		guard( dateSwitch.isOn) else {return nil}
+		return datePicker.date
+	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -48,10 +61,17 @@ class EditContainerView: UIView {
 	
 	func setBackgroundColor(color: UIColor) {
 		bColor = color
-		colorViews[3].color = color
-		for colorButton in colorViews {
-			colorButton.isCheckmark = colorButton == colorViews[3]
-		}
+		colorViews.forEach { $0.isCheckmark = false }
+		choiceView(color: color)
+	}
+	
+	func set(title: String, content: String, color: UIColor, date: Date? = nil) {
+		bColor = color
+		titleTextField.text = title
+		contentTextView.text = content
+		choiceView(color: color)
+		guard let date = date else { return }
+		datePicker.date = date
 	}
 }
 
@@ -62,8 +82,6 @@ private extension EditContainerView {
 		addSubview()
 		configureContent()
 		addTargets()
-		
-		colorViews[0].isCheckmark = true
 	}
 	
 	func addSubview() {
@@ -179,12 +197,28 @@ private extension EditContainerView {
 	}
 	
 	@objc func viewGestureTap(_ tap: UITapGestureRecognizer) {
-		//guard let index = tap.view?.tag else { return }
-		//		let color = colorBackground(index: index)
-		//		colorDidChange?(color)
+		guard let index = tap.view?.tag else { return }
+		let color = colors[index]
+		colorDidChange?(color)
 		colorViews.forEach { colorView in
 			colorView.isCheckmark = colorView == tap.view
 		}
+	}
+	
+	func colorBackground(index: Int) -> UIColor {
+		let view = colorViews[index]
+		view.color = colors[index]
+		let color = view.color
+		return color!
+	}
+	
+	func choiceView(color: UIColor) {
+		guard let colorView = colorViews.first(where: { $0.color == color }) else {
+			colorViews[3].color = color
+			colorViews[3].isCheckmark = true
+			return
+		}
+		colorView.isCheckmark = true
 	}
 	
 	@objc func colorPickerPressGesture(sender: UILongPressGestureRecognizer) {
