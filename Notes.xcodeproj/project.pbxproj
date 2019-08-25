@@ -21,6 +21,8 @@
 		DC391EC32312845300983DF9 /* NotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EC22312845300983DF9 /* NotesViewCell.swift */; };
 		DC391EE52312914E00983DF9 /* UICollectionView .swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EE42312914E00983DF9 /* UICollectionView .swift */; };
 		DC391EE9231291F800983DF9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EE8231291F800983DF9 /* Image.swift */; };
+		DC391EED231294CC00983DF9 /* ImageNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EEC231294CC00983DF9 /* ImageNotebook.swift */; };
+		DC391EF1231295EF00983DF9 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EF0231295EF00983DF9 /* ImageTests.swift */; };
 		DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F0230AF71500E69B1F /* EditViewController.swift */; };
 		DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3D59F1230AF71500E69B1F /* EditViewController.xib */; };
 		DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */; };
@@ -77,6 +79,8 @@
 		DC391EC22312845300983DF9 /* NotesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewCell.swift; sourceTree = "<group>"; };
 		DC391EE42312914E00983DF9 /* UICollectionView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UICollectionView .swift"; path = "../../../../../UICollectionView .swift"; sourceTree = "<group>"; };
 		DC391EE8231291F800983DF9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
+		DC391EEC231294CC00983DF9 /* ImageNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNotebook.swift; sourceTree = "<group>"; };
+		DC391EF0231295EF00983DF9 /* ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
 		DC3D59F0230AF71500E69B1F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DC3D59F1230AF71500E69B1F /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerVIew.swift; sourceTree = "<group>"; };
@@ -105,7 +109,7 @@
 		DC985186230AAA3F00884885 /* NotesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTests.swift; sourceTree = "<group>"; };
 		DC985188230AAA3F00884885 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC98518F230AB06000884885 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
-		DC985192230ABFE000884885 /* FileNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileNotebookTests.swift; path = "../New Group/FileNotebookTests.swift"; sourceTree = "<group>"; };
+		DC985192230ABFE000884885 /* FileNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebookTests.swift; sourceTree = "<group>"; };
 		DC985196230AE74000884885 /* NoteExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtensionTests.swift; sourceTree = "<group>"; };
 		E531F577C52261B4309AF65E /* libPods-NotesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -215,6 +219,25 @@
 			isa = PBXGroup;
 			children = (
 				DC391EE8231291F800983DF9 /* Image.swift */,
+				DC391EEC231294CC00983DF9 /* ImageNotebook.swift */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
+		DC391EEE231295AC00983DF9 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				DC985192230ABFE000884885 /* FileNotebookTests.swift */,
+				DC98518F230AB06000884885 /* NoteTests.swift */,
+				DC985196230AE74000884885 /* NoteExtensionTests.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		DC391EEF231295DB00983DF9 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DC391EF0231295EF00983DF9 /* ImageTests.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -400,9 +423,8 @@
 		DC98518E230AB04200884885 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DC985192230ABFE000884885 /* FileNotebookTests.swift */,
-				DC98518F230AB06000884885 /* NoteTests.swift */,
-				DC985196230AE74000884885 /* NoteExtensionTests.swift */,
+				DC391EEF231295DB00983DF9 /* Image */,
+				DC391EEE231295AC00983DF9 /* Note */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -596,6 +618,7 @@
 				DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */,
 				DC391EE52312914E00983DF9 /* UICollectionView .swift in Sources */,
 				DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */,
+				DC391EED231294CC00983DF9 /* ImageNotebook.swift in Sources */,
 				DC391EBE2312840300983DF9 /* NotesTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -604,6 +627,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC391EF1231295EF00983DF9 /* ImageTests.swift in Sources */,
 				DC985193230ABFE000884885 /* FileNotebookTests.swift in Sources */,
 				DC985197230AE74000884885 /* NoteExtensionTests.swift in Sources */,
 				DC985187230AAA3F00884885 /* NotesTests.swift in Sources */,

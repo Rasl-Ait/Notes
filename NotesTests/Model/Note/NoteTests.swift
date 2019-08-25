@@ -43,6 +43,7 @@ class NoteTests: XCTestCase {
 		let note = Note(uid: "DFDFEREFEFF", title: "title",
 										content: "content", color: .white,
 										importance: .normal, destructionDate: Date())
+		XCTAssertTrue(note.uid == "DFDFEREFEFF")
 		XCTAssertTrue(note.title == "title")
 		XCTAssertTrue(note.content == "content")
 		XCTAssertTrue(note.importance == .normal)
