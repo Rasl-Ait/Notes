@@ -19,6 +19,8 @@
 		DC391EBE2312840300983DF9 /* NotesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EBC2312840300983DF9 /* NotesTableViewCell.swift */; };
 		DC391EBF2312840300983DF9 /* NotesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC391EBD2312840300983DF9 /* NotesTableViewCell.xib */; };
 		DC391EC32312845300983DF9 /* NotesViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EC22312845300983DF9 /* NotesViewCell.swift */; };
+		DC391EE52312914E00983DF9 /* UICollectionView .swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EE42312914E00983DF9 /* UICollectionView .swift */; };
+		DC391EE9231291F800983DF9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EE8231291F800983DF9 /* Image.swift */; };
 		DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F0230AF71500E69B1F /* EditViewController.swift */; };
 		DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3D59F1230AF71500E69B1F /* EditViewController.xib */; };
 		DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */; };
@@ -73,6 +75,8 @@
 		DC391EBC2312840300983DF9 /* NotesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesTableViewCell.swift; sourceTree = "<group>"; };
 		DC391EBD2312840300983DF9 /* NotesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesTableViewCell.xib; sourceTree = "<group>"; };
 		DC391EC22312845300983DF9 /* NotesViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotesViewCell.swift; sourceTree = "<group>"; };
+		DC391EE42312914E00983DF9 /* UICollectionView .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UICollectionView .swift"; path = "../../../../../UICollectionView .swift"; sourceTree = "<group>"; };
+		DC391EE8231291F800983DF9 /* Image.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Image.swift; sourceTree = "<group>"; };
 		DC3D59F0230AF71500E69B1F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DC3D59F1230AF71500E69B1F /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerVIew.swift; sourceTree = "<group>"; };
@@ -195,6 +199,24 @@
 				DC391EC22312845300983DF9 /* NotesViewCell.swift */,
 			);
 			path = Notes;
+			sourceTree = "<group>";
+		};
+		DC391EE6231291E200983DF9 /* Note */ = {
+			isa = PBXGroup;
+			children = (
+				DC985177230A9A9200884885 /* Note.swift */,
+				DC985179230A9ACB00884885 /* NoteExtensions.swift */,
+				DC98517E230A9B7100884885 /* FileNotebook.swift */,
+			);
+			path = Note;
+			sourceTree = "<group>";
+		};
+		DC391EE7231291EA00983DF9 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				DC391EE8231291F800983DF9 /* Image.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		DC3D59F4230AF78600E69B1F /* Custom Views */ = {
@@ -347,9 +369,8 @@
 		DC985176230A9A7600884885 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				DC985177230A9A9200884885 /* Note.swift */,
-				DC985179230A9ACB00884885 /* NoteExtensions.swift */,
-				DC98517E230A9B7100884885 /* FileNotebook.swift */,
+				DC391EE7231291EA00983DF9 /* Image */,
+				DC391EE6231291E200983DF9 /* Note */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -361,6 +382,7 @@
 				DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */,
 				DC3D59FD230AF9BF00E69B1F /* UIView.swift */,
 				DC98517C230A9AF100884885 /* UIColor.swift */,
+				DC391EE42312914E00983DF9 /* UICollectionView .swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -549,6 +571,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC98517F230A9B7100884885 /* FileNotebook.swift in Sources */,
+				DC391EE9231291F800983DF9 /* Image.swift in Sources */,
 				DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */,
 				DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */,
 				DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */,
@@ -571,6 +594,7 @@
 				DC391EB0231280BB00983DF9 /* NotesViewController.swift in Sources */,
 				DC98517D230A9AF100884885 /* UIColor.swift in Sources */,
 				DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */,
+				DC391EE52312914E00983DF9 /* UICollectionView .swift in Sources */,
 				DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */,
 				DC391EBE2312840300983DF9 /* NotesTableViewCell.swift in Sources */,
 			);
