@@ -15,6 +15,13 @@ class GalleryViewController: UIViewController {
 	private let countCells: CGFloat = 3.0
 	private let imageNotebook = ImageNotebook()
 
+	
+	lazy var imagePickerManager: ImagePickerManager = {
+		let manager = ImagePickerManager(presentingController: self)
+		manager.delegate = self
+		return manager
+	}()
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		imageNotebook.loadFromFile()
@@ -67,7 +74,7 @@ private extension GalleryViewController {
 	}
 	
 	@objc func addButtonClicked(_ sender: UIBarButtonItem) {
-		
+		imagePickerManager.presentImagePicker(animated: true)
 	}
 }
 
@@ -116,3 +123,13 @@ extension GalleryViewController: UICollectionViewDelegateFlowLayout {
 	}
 }
 
+// MARK: - ImagePickerManagerDelegate
+extension GalleryViewController: ImagePickerManagerDelegate {
+	func manager(_ manager: ImagePickerManager, didPickImage image: UIImage) {
+		let model = imageNotebook.saveNewMemory(image: image)
+		imageNotebook.add(model)
+		imageNotebook.saveToFile()
+		collectionView.reloadData()
+		manager.dismissImagePicker(animated: true , completion: nil)
+	}
+}

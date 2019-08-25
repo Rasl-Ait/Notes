@@ -38,7 +38,6 @@ private extension ImageViewerCollectionViewCell {
 		scrollView.delegate = self
 		scrollView.minimumZoomScale = 1.0
 		scrollView.maximumZoomScale = 4.5
-		backgroundColor = .white
 		let tap = UITapGestureRecognizer(target: self, action: #selector(doubleTouches(recognizer:)))
 		tap.numberOfTapsRequired = 2
 		self.addGestureRecognizer(tap)
