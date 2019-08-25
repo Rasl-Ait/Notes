@@ -36,7 +36,6 @@ private extension NotesViewController {
 	func setup() {
 		setupTableView()
 		setupNavigationBar()
-		
 	}
 	
 	func setupTableView() {
@@ -54,7 +53,7 @@ extension NotesViewController: UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueCell(of: NotesTableViewCell.self, for: indexPath)
+		let cell: NotesTableViewCell = tableView.dequeueCell(for: indexPath)
 		let note = fileNotebook.notes[indexPath.row]
 		cell.configure(note: note)
 		return cell
@@ -74,6 +73,7 @@ extension NotesViewController: UITableViewDataSource {
 	}
 	
 	func setupNavigationBar() {
+		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.leftBarButtonItem = editButtonItem
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			barButtonSystemItem: .add, target: self,

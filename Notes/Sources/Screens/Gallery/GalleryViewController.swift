@@ -78,7 +78,7 @@ extension GalleryViewController: UICollectionViewDataSource {
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueCell( of: ImageCollectionViewCell.self, for: indexPath)
+		let cell: ImageCollectionViewCell = collectionView.dequeueCell(for: indexPath)
 		let model = imageNotebook.images[indexPath.row]
 		let path = self.imageNotebook.load(filename: model.thumbImage)
 		let image = UIImage(contentsOfFile: path.path)
@@ -90,7 +90,17 @@ extension GalleryViewController: UICollectionViewDataSource {
 // MARK: UICollectionViewDelegate
 extension GalleryViewController: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		pushImageViewer(indexPath: indexPath)
 		collectionView.deselectItem(at: indexPath, animated: true)
+	}
+	
+	private func pushImageViewer(indexPath: IndexPath) {
+		let imageViewerController = ImageViewerViewController()
+		imageViewerController.models = imageNotebook.images
+		imageViewerController.indexPath = indexPath
+		imageViewerController.modalTransitionStyle = .crossDissolve
+		navigationController?.pushViewController(imageViewerController, animated: true)
+		tabBarIsHidden(true)
 	}
 }
 

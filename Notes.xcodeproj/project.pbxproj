@@ -25,6 +25,10 @@
 		DC391EF1231295EF00983DF9 /* ImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EF0231295EF00983DF9 /* ImageTests.swift */; };
 		DC391EF52312A05200983DF9 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EF32312A05200983DF9 /* ImageCollectionViewCell.swift */; };
 		DC391EF62312A05200983DF9 /* ImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC391EF42312A05200983DF9 /* ImageCollectionViewCell.xib */; };
+		DC391EFA2312AF8400983DF9 /* ImageViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EF82312AF8400983DF9 /* ImageViewerViewController.swift */; };
+		DC391EFB2312AF8400983DF9 /* ImageViewerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC391EF92312AF8400983DF9 /* ImageViewerViewController.xib */; };
+		DC391EFF2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EFD2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift */; };
+		DC391F002312AFDC00983DF9 /* ImageViewerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC391EFE2312AFDC00983DF9 /* ImageViewerCollectionViewCell.xib */; };
 		DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F0230AF71500E69B1F /* EditViewController.swift */; };
 		DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3D59F1230AF71500E69B1F /* EditViewController.xib */; };
 		DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */; };
@@ -85,6 +89,10 @@
 		DC391EF0231295EF00983DF9 /* ImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTests.swift; sourceTree = "<group>"; };
 		DC391EF32312A05200983DF9 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		DC391EF42312A05200983DF9 /* ImageCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		DC391EF82312AF8400983DF9 /* ImageViewerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerViewController.swift; sourceTree = "<group>"; };
+		DC391EF92312AF8400983DF9 /* ImageViewerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerViewController.xib; sourceTree = "<group>"; };
+		DC391EFD2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewerCollectionViewCell.swift; sourceTree = "<group>"; };
+		DC391EFE2312AFDC00983DF9 /* ImageViewerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageViewerCollectionViewCell.xib; sourceTree = "<group>"; };
 		DC3D59F0230AF71500E69B1F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DC3D59F1230AF71500E69B1F /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerVIew.swift; sourceTree = "<group>"; };
@@ -179,6 +187,7 @@
 		DC391EBA231283E500983DF9 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				DC391EFC2312AFC200983DF9 /* Image Viewer */,
 				DC391EF22312A03600983DF9 /* Image */,
 				DC391EBB231283EB00983DF9 /* Notes */,
 			);
@@ -254,6 +263,24 @@
 				DC391EF42312A05200983DF9 /* ImageCollectionViewCell.xib */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		DC391EF72312AF4B00983DF9 /* Image Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				DC391EF82312AF8400983DF9 /* ImageViewerViewController.swift */,
+				DC391EF92312AF8400983DF9 /* ImageViewerViewController.xib */,
+			);
+			path = "Image Viewer";
+			sourceTree = "<group>";
+		};
+		DC391EFC2312AFC200983DF9 /* Image Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				DC391EFD2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift */,
+				DC391EFE2312AFDC00983DF9 /* ImageViewerCollectionViewCell.xib */,
+			);
+			path = "Image Viewer";
 			sourceTree = "<group>";
 		};
 		DC3D59F4230AF78600E69B1F /* Custom Views */ = {
@@ -395,6 +422,7 @@
 		DC92EBAC230A7D50003F5A36 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC391EF72312AF4B00983DF9 /* Image Viewer */,
 				DC391EAD231280A500983DF9 /* Gallery */,
 				DC391EAC2312809F00983DF9 /* Notes */,
 				DC827E25230BE9CD00339EF0 /* Color Picker */,
@@ -415,10 +443,10 @@
 		DC98517B230A9ADB00884885 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				DC391EB82312838800983DF9 /* UITableView.swift */,
 				DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */,
 				DC3D59FD230AF9BF00E69B1F /* UIView.swift */,
 				DC98517C230A9AF100884885 /* UIColor.swift */,
+				DC391EB82312838800983DF9 /* UITableView.swift */,
 				DC391EE42312914E00983DF9 /* UICollectionView .swift */,
 			);
 			path = Extensions;
@@ -535,12 +563,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC391F002312AFDC00983DF9 /* ImageViewerCollectionViewCell.xib in Resources */,
 				DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */,
 				DC391EB5231280CB00983DF9 /* GalleryViewController.xib in Resources */,
 				DC391EBF2312840300983DF9 /* NotesTableViewCell.xib in Resources */,
 				DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */,
 				DC827E29230BE9E600339EF0 /* ColorPickerViewController.xib in Resources */,
 				DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */,
+				DC391EFB2312AF8400983DF9 /* ImageViewerViewController.xib in Resources */,
 				DC391EF62312A05200983DF9 /* ImageCollectionViewCell.xib in Resources */,
 				DC391EB1231280BB00983DF9 /* NotesViewController.xib in Resources */,
 			);
@@ -618,6 +648,7 @@
 				DC391EB72312837700983DF9 /* NibLoadable.swift in Sources */,
 				DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */,
 				DC3D59FB230AF85200E69B1F /* CustomTextView.swift in Sources */,
+				DC391EFF2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift in Sources */,
 				DC1F39C2230D988A0092968D /* PickerView.swift in Sources */,
 				DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */,
 				DC827E24230BE98100339EF0 /* ColorPalleteView.swift in Sources */,
@@ -625,6 +656,7 @@
 				DC3D59FC230AF85200E69B1F /* CustomTextField.swift in Sources */,
 				DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
+				DC391EFA2312AF8400983DF9 /* ImageViewerViewController.swift in Sources */,
 				DC985178230A9A9200884885 /* Note.swift in Sources */,
 				DC391EB4231280CB00983DF9 /* GalleryViewController.swift in Sources */,
 				DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */,
