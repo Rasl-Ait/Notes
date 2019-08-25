@@ -10,6 +10,10 @@
 		42EBF8021C6B71FF140FC9C2 /* libPods-NotesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E531F577C52261B4309AF65E /* libPods-NotesTests.a */; };
 		7F76AF6D8BAA8CDF014B82A2 /* libPods-Notes.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA214A4EE76DDA129F04DAC /* libPods-Notes.a */; };
 		DC1F39C2230D988A0092968D /* PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC1F39C1230D988A0092968D /* PickerView.swift */; };
+		DC391EB0231280BB00983DF9 /* NotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EAE231280BB00983DF9 /* NotesViewController.swift */; };
+		DC391EB1231280BB00983DF9 /* NotesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC391EAF231280BB00983DF9 /* NotesViewController.xib */; };
+		DC391EB4231280CB00983DF9 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC391EB2231280CB00983DF9 /* GalleryViewController.swift */; };
+		DC391EB5231280CB00983DF9 /* GalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC391EB3231280CB00983DF9 /* GalleryViewController.xib */; };
 		DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F0230AF71500E69B1F /* EditViewController.swift */; };
 		DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DC3D59F1230AF71500E69B1F /* EditViewController.xib */; };
 		DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */; };
@@ -26,7 +30,6 @@
 		DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E2A230BEB3300339EF0 /* ContainerView.swift */; };
 		DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E2C230C0FA500339EF0 /* SightView.swift */; };
 		DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92EB97230A7AC7003F5A36 /* AppDelegate.swift */; };
-		DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC92EB99230A7AC7003F5A36 /* ViewController.swift */; };
 		DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC92EB9E230A7AC8003F5A36 /* Assets.xcassets */; };
 		DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC92EBA0230A7AC8003F5A36 /* LaunchScreen.storyboard */; };
 		DC985178230A9A9200884885 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985177230A9A9200884885 /* Note.swift */; };
@@ -56,6 +59,10 @@
 		CF72DE145CBD4ED5D7975F11 /* Pods-NotesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NotesTests.release.xcconfig"; path = "Target Support Files/Pods-NotesTests/Pods-NotesTests.release.xcconfig"; sourceTree = "<group>"; };
 		DAA214A4EE76DDA129F04DAC /* libPods-Notes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1F39C1230D988A0092968D /* PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerView.swift; sourceTree = "<group>"; };
+		DC391EAE231280BB00983DF9 /* NotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewController.swift; sourceTree = "<group>"; };
+		DC391EAF231280BB00983DF9 /* NotesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotesViewController.xib; sourceTree = "<group>"; };
+		DC391EB2231280CB00983DF9 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		DC391EB3231280CB00983DF9 /* GalleryViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GalleryViewController.xib; sourceTree = "<group>"; };
 		DC3D59F0230AF71500E69B1F /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		DC3D59F1230AF71500E69B1F /* EditViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditViewController.xib; sourceTree = "<group>"; };
 		DC3D59F6230AF7EB00E69B1F /* EditContainerVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContainerVIew.swift; sourceTree = "<group>"; };
@@ -73,7 +80,6 @@
 		DC827E2C230C0FA500339EF0 /* SightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SightView.swift; sourceTree = "<group>"; };
 		DC92EB94230A7AC7003F5A36 /* Notes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Notes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC92EB97230A7AC7003F5A36 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC92EB99230A7AC7003F5A36 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC92EB9E230A7AC8003F5A36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC92EBA1230A7AC8003F5A36 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC92EBA3230A7AC8003F5A36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -128,6 +134,24 @@
 				CF72DE145CBD4ED5D7975F11 /* Pods-NotesTests.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		DC391EAC2312809F00983DF9 /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				DC391EAE231280BB00983DF9 /* NotesViewController.swift */,
+				DC391EAF231280BB00983DF9 /* NotesViewController.xib */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		DC391EAD231280A500983DF9 /* Gallery */ = {
+			isa = PBXGroup;
+			children = (
+				DC391EB2231280CB00983DF9 /* GalleryViewController.swift */,
+				DC391EB3231280CB00983DF9 /* GalleryViewController.xib */,
+			);
+			path = Gallery;
 			sourceTree = "<group>";
 		};
 		DC3D59F4230AF78600E69B1F /* Custom Views */ = {
@@ -235,10 +259,10 @@
 		DC92EBA9230A7CB9003F5A36 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DC92EBAB230A7D3B003F5A36 /* Application */,
 				DC827E1F230BE49B00339EF0 /* Protocols */,
 				DC98517B230A9ADB00884885 /* Extensions */,
 				DC3D59F4230AF78600E69B1F /* Custom Views */,
-				DC92EBAB230A7D3B003F5A36 /* Application */,
 				DC985176230A9A7600884885 /* Model */,
 				DC92EBAC230A7D50003F5A36 /* Screens */,
 			);
@@ -266,8 +290,9 @@
 		DC92EBAC230A7D50003F5A36 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC391EAD231280A500983DF9 /* Gallery */,
+				DC391EAC2312809F00983DF9 /* Notes */,
 				DC827E25230BE9CD00339EF0 /* Color Picker */,
-				DC92EB99230A7AC7003F5A36 /* ViewController.swift */,
 				DC985198230AF63400884885 /* Edit */,
 			);
 			path = Screens;
@@ -406,9 +431,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3D59F3230AF71500E69B1F /* EditViewController.xib in Resources */,
+				DC391EB5231280CB00983DF9 /* GalleryViewController.xib in Resources */,
 				DC92EBA2230A7AC8003F5A36 /* LaunchScreen.storyboard in Resources */,
 				DC827E29230BE9E600339EF0 /* ColorPickerViewController.xib in Resources */,
 				DC92EB9F230A7AC8003F5A36 /* Assets.xcassets in Resources */,
+				DC391EB1231280BB00983DF9 /* NotesViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -474,7 +501,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC98517F230A9B7100884885 /* FileNotebook.swift in Sources */,
-				DC92EB9A230A7AC7003F5A36 /* ViewController.swift in Sources */,
 				DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */,
 				DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */,
 				DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */,
@@ -489,7 +515,9 @@
 				DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
 				DC985178230A9A9200884885 /* Note.swift in Sources */,
+				DC391EB4231280CB00983DF9 /* GalleryViewController.swift in Sources */,
 				DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */,
+				DC391EB0231280BB00983DF9 /* NotesViewController.swift in Sources */,
 				DC98517D230A9AF100884885 /* UIColor.swift in Sources */,
 				DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */,
 				DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */,

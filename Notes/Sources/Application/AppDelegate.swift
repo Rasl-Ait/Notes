@@ -14,19 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
 
-	func application(
-		_ application: UIApplication,
-		didFinishLaunchingWithOptions launchOptions:
-		[UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions
+		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		setupLogger()
-		
-		window = UIWindow(frame: UIScreen.main.bounds)
-		window?.makeKeyAndVisible()
-		let navigatorController =  UINavigationController(
-			rootViewController: EditViewController()
-		)
-		window?.rootViewController = navigatorController
-		
+		setupDefaultColors()
+		setupTabBarController()
 		return true
 	}
 	
@@ -37,6 +29,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		fileLogger.logFileManager.maximumNumberOfLogFiles = 7
 		DDLog.add(fileLogger)
 	}
+	
+	func setupDefaultColors() {
+		// Default color
+		let textTintColor = #colorLiteral(red: 0.1764705882, green: 0.2235294118, blue: 0.2666666667, alpha: 1)
+		let tintColor = UIColor.black
+		
+		// NavigationBar
+		UINavigationBar.appearance().tintColor = tintColor
+		UINavigationBar.appearance().titleTextAttributes = [
+			NSAttributedString.Key.foregroundColor: textTintColor
+		]
+		
+		if let barFont = UIFont(name: "HelveticaNeue-Bold", size: 30) {
+			UINavigationBar.appearance().largeTitleTextAttributes = [
+				NSAttributedString.Key.foregroundColor: textTintColor,
+				NSAttributedString.Key.font: barFont
+			]
+		}
+		
+		// Tab Bar
+		UITabBar.appearance().tintColor = tintColor
+	}
+	
+	func setupTabBarController() {
+		let tabBarController = UITabBarController()
+		let notesController = NotesViewController()
+		let galleryController = GalleryViewController()
+		
+		notesController.title = "Заметки"
+		galleryController.title = "Галерея"
+		
+		notesController.tabBarItem = UITabBarItem(
+			title: "Заметки",
+			image: UIImage(named: "notes"),
+			tag: 0)
+		
+		galleryController.tabBarItem  = UITabBarItem(
+			title: "Галерея",
+			image: UIImage(named: "gallery"),
+			tag: 1)
+		
+		tabBarController.viewControllers = [
+			notesController,
+			galleryController]
+			.map{ UINavigationController(rootViewController: $0) }
+		
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.makeKeyAndVisible()
+		window?.rootViewController = tabBarController
+		
+	}
+
 
 	func applicationWillResignActive(_ application: UIApplication) {}
 
