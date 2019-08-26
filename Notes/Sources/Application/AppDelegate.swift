@@ -9,6 +9,10 @@
 import UIKit
 import CocoaLumberjack
 
+let backendQueue = OperationQueue()
+let dbQueue = OperationQueue()
+let commonQueue = OperationQueue()
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

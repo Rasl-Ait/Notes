@@ -12,6 +12,7 @@ class NotesViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
 	let fileNotebook = FileNotebook()
+	var notes = [Note]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -36,6 +37,7 @@ private extension NotesViewController {
 	func setup() {
 		setupTableView()
 		setupNavigationBar()
+		showAuthController()
 	}
 	
 	func setupTableView() {
@@ -43,6 +45,54 @@ private extension NotesViewController {
 		tableView.delegate = self
 		tableView.separatorStyle = .none
 		tableView.register(cellType: NotesTableViewCell.self)
+	}
+	
+	func loadNotesOperation() {
+		let loadNotesOperation = LoadNotesOperation(
+			notebook: fileNotebook,
+			backendQueue: backendQueue,
+			dbQueue: dbQueue
+		)
+		
+		loadNotesOperation.completionBlock = {
+			DispatchQueue.main.async { [weak self] in
+				guard let `self` = self else { return }
+				self.tableView.reloadData()
+			}
+		}
+		
+		commonQueue.addOperation(loadNotesOperation)
+	}
+	
+	func setupNavigationBar() {
+		navigationController?.navigationBar.prefersLargeTitles = true
+		navigationItem.leftBarButtonItem = editButtonItem
+		navigationItem.rightBarButtonItem = UIBarButtonItem(
+			barButtonSystemItem: .add, target: self,
+			action: #selector(addBarButtonClicked)
+		)
+	}
+	
+	@objc func addBarButtonClicked() {
+		let editController = EditViewController()
+		editController.fileNotebook = fileNotebook
+		tabBarIsHidden(true)
+		navigationController?.pushViewController(editController, animated: true)
+	}
+	
+	func tabBarIsHidden(_ bool: Bool) {
+		self.tabBarController?.tabBar.isHidden = bool
+	}
+	
+	func showAuthController() {
+		guard !UserDefaults.token.isEmpty else {
+			let authView = AuthViewController()
+			authView.delegate = self
+			self.present(authView, animated: true, completion: nil)
+			return
+		}
+		
+		loadNotesOperation()
 	}
 }
 
@@ -67,29 +117,15 @@ extension NotesViewController: UITableViewDataSource {
 		UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		guard editingStyle == .delete else { return }
 		let note = fileNotebook.notes[indexPath.row]
-		fileNotebook.remove(with: note.uid)
-		fileNotebook.saveToFile()
-		tableView.deleteRows(at: [indexPath], with: .automatic)
-	}
-	
-	func setupNavigationBar() {
-		navigationController?.navigationBar.prefersLargeTitles = true
-		navigationItem.leftBarButtonItem = editButtonItem
-		navigationItem.rightBarButtonItem = UIBarButtonItem(
-			barButtonSystemItem: .add, target: self,
-			action: #selector(addBarButtonClicked)
+		let removeNoteOperation = RemoveNoteOperation(
+			note: note,
+			notebook: fileNotebook,
+			backendQueue: backendQueue,
+			dbQueue: dbQueue
 		)
-	}
-	
-	@objc func addBarButtonClicked() {
-		let editController = EditViewController()
-		editController.fileNotebook = fileNotebook
-		tabBarIsHidden(true)
-		navigationController?.pushViewController(editController, animated: true)
-	}
-	
-	func tabBarIsHidden(_ bool: Bool) {
-		self.tabBarController?.tabBar.isHidden = bool
+		
+		commonQueue.addOperation(removeNoteOperation)
+		tableView.deleteRows(at: [indexPath], with: .automatic)
 	}
 }
 
@@ -118,3 +154,9 @@ extension NotesViewController: UITableViewDelegate {
 	}
 }
 
+// MARK: - AuthViewControllerDelegate
+extension NotesViewController: AuthViewControllerDelegate {
+	func handleTokenChanged(token: String) {
+		UserDefaults.setToken(token)
+	}
+}

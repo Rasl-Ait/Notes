@@ -37,6 +37,23 @@
 		DC3D59FC230AF85200E69B1F /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59FA230AF85200E69B1F /* CustomTextField.swift */; };
 		DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59FD230AF9BF00E69B1F /* UIView.swift */; };
 		DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */; };
+		DC6289AD2313BA55000A652E /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289AC2313BA55000A652E /* AsyncOperation.swift */; };
+		DC6289B22313BB48000A652E /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289B12313BB48000A652E /* SaveNoteDBOperation.swift */; };
+		DC6289B42313BB4E000A652E /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289B32313BB4E000A652E /* BaseDBOperation.swift */; };
+		DC6289B62313BB60000A652E /* SaveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289B52313BB60000A652E /* SaveNoteOperation.swift */; };
+		DC6289B82313BC33000A652E /* SaveNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289B72313BC33000A652E /* SaveNotesBackendOperation.swift */; };
+		DC6289BA2313BC3C000A652E /* LoadNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289B92313BC3C000A652E /* LoadNotesBackendOperation.swift */; };
+		DC6289BC2313BC70000A652E /* BaseBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289BB2313BC70000A652E /* BaseBackendOperation.swift */; };
+		DC6289BE2313BCAB000A652E /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289BD2313BCAB000A652E /* LoadNotesDBOperation.swift */; };
+		DC6289C02313BCB6000A652E /* RemoveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289BF2313BCB6000A652E /* RemoveNoteDBOperation.swift */; };
+		DC6289C22313BCC5000A652E /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289C12313BCC5000A652E /* LoadNotesOperation.swift */; };
+		DC6289C42313BCD2000A652E /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289C32313BCD2000A652E /* RemoveNoteOperation.swift */; };
+		DC6289C72313CE6C000A652E /* Gist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289C62313CE6C000A652E /* Gist.swift */; };
+		DC6289C92313CEE3000A652E /* GistFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289C82313CEE3000A652E /* GistFile.swift */; };
+		DC6289CB2313D1E3000A652E /* GithubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289CA2313D1E3000A652E /* GithubAPI.swift */; };
+		DC6289CD2313D2C1000A652E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289CC2313D2C1000A652E /* UserDefaults.swift */; };
+		DC6289CF2313D378000A652E /* PostGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289CE2313D378000A652E /* PostGist.swift */; };
+		DC6289D22313D40E000A652E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D12313D40E000A652E /* AuthViewController.swift */; };
 		DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1A230BCFE000339EF0 /* ColorView.swift */; };
 		DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */; };
 		DC827E21230BE4DF00339EF0 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E20230BE4DF00339EF0 /* Typealias.swift */; };
@@ -102,6 +119,23 @@
 		DC3D59FA230AF85200E69B1F /* CustomTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		DC3D59FD230AF9BF00E69B1F /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		DC3D59FE230AF9BF00E69B1F /* UILabel+Intialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Intialization.swift"; sourceTree = "<group>"; };
+		DC6289AC2313BA55000A652E /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		DC6289B12313BB48000A652E /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
+		DC6289B32313BB4E000A652E /* BaseDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
+		DC6289B52313BB60000A652E /* SaveNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteOperation.swift; sourceTree = "<group>"; };
+		DC6289B72313BC33000A652E /* SaveNotesBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveNotesBackendOperation.swift; sourceTree = "<group>"; };
+		DC6289B92313BC3C000A652E /* LoadNotesBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesBackendOperation.swift; sourceTree = "<group>"; };
+		DC6289BB2313BC70000A652E /* BaseBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBackendOperation.swift; sourceTree = "<group>"; };
+		DC6289BD2313BCAB000A652E /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
+		DC6289BF2313BCB6000A652E /* RemoveNoteDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteDBOperation.swift; sourceTree = "<group>"; };
+		DC6289C12313BCC5000A652E /* LoadNotesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
+		DC6289C32313BCD2000A652E /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
+		DC6289C62313CE6C000A652E /* Gist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gist.swift; sourceTree = "<group>"; };
+		DC6289C82313CEE3000A652E /* GistFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GistFile.swift; sourceTree = "<group>"; };
+		DC6289CA2313D1E3000A652E /* GithubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubAPI.swift; sourceTree = "<group>"; };
+		DC6289CC2313D2C1000A652E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		DC6289CE2313D378000A652E /* PostGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGist.swift; sourceTree = "<group>"; };
+		DC6289D12313D40E000A652E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DC827E1A230BCFE000339EF0 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СheckmarkView.swift"; sourceTree = "<group>"; };
 		DC827E20230BE4DF00339EF0 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -316,6 +350,66 @@
 			path = "Text Filed and Text View";
 			sourceTree = "<group>";
 		};
+		DC6289AB2313BA3F000A652E /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289AC2313BA55000A652E /* AsyncOperation.swift */,
+				DC6289AE2313BA62000A652E /* UIOperations */,
+				DC6289AF2313BA6E000A652E /* DBOperations */,
+				DC6289B02313BA7E000A652E /* BaseBackendOperation */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		DC6289AE2313BA62000A652E /* UIOperations */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289B52313BB60000A652E /* SaveNoteOperation.swift */,
+				DC6289C12313BCC5000A652E /* LoadNotesOperation.swift */,
+				DC6289C32313BCD2000A652E /* RemoveNoteOperation.swift */,
+			);
+			path = UIOperations;
+			sourceTree = "<group>";
+		};
+		DC6289AF2313BA6E000A652E /* DBOperations */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289B32313BB4E000A652E /* BaseDBOperation.swift */,
+				DC6289B12313BB48000A652E /* SaveNoteDBOperation.swift */,
+				DC6289BD2313BCAB000A652E /* LoadNotesDBOperation.swift */,
+				DC6289BF2313BCB6000A652E /* RemoveNoteDBOperation.swift */,
+			);
+			path = DBOperations;
+			sourceTree = "<group>";
+		};
+		DC6289B02313BA7E000A652E /* BaseBackendOperation */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289BB2313BC70000A652E /* BaseBackendOperation.swift */,
+				DC6289B72313BC33000A652E /* SaveNotesBackendOperation.swift */,
+				DC6289B92313BC3C000A652E /* LoadNotesBackendOperation.swift */,
+			);
+			path = BaseBackendOperation;
+			sourceTree = "<group>";
+		};
+		DC6289C52313CE48000A652E /* Gist */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289C62313CE6C000A652E /* Gist.swift */,
+				DC6289C82313CEE3000A652E /* GistFile.swift */,
+				DC6289CE2313D378000A652E /* PostGist.swift */,
+			);
+			path = Gist;
+			sourceTree = "<group>";
+		};
+		DC6289D02313D3F8000A652E /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289D12313D40E000A652E /* AuthViewController.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
 		DC827E19230BCFBD00339EF0 /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,6 +488,7 @@
 			isa = PBXGroup;
 			children = (
 				DC92EBAB230A7D3B003F5A36 /* Application */,
+				DC6289AB2313BA3F000A652E /* Operations */,
 				DC827E1F230BE49B00339EF0 /* Protocols */,
 				DC98517B230A9ADB00884885 /* Extensions */,
 				DC3D59F4230AF78600E69B1F /* Custom Views */,
@@ -425,6 +520,7 @@
 		DC92EBAC230A7D50003F5A36 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC6289D02313D3F8000A652E /* Auth */,
 				DC391EF72312AF4B00983DF9 /* Image Viewer */,
 				DC391EAD231280A500983DF9 /* Gallery */,
 				DC391EAC2312809F00983DF9 /* Notes */,
@@ -437,8 +533,10 @@
 		DC985176230A9A7600884885 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DC6289C52313CE48000A652E /* Gist */,
 				DC391EE7231291EA00983DF9 /* Image */,
 				DC391EE6231291E200983DF9 /* Note */,
+				DC6289CA2313D1E3000A652E /* GithubAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +549,7 @@
 				DC98517C230A9AF100884885 /* UIColor.swift */,
 				DC391EB82312838800983DF9 /* UITableView.swift */,
 				DC391EE42312914E00983DF9 /* UICollectionView .swift */,
+				DC6289CC2313D2C1000A652E /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -641,19 +740,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC98517F230A9B7100884885 /* FileNotebook.swift in Sources */,
+				DC6289BC2313BC70000A652E /* BaseBackendOperation.swift in Sources */,
+				DC6289AD2313BA55000A652E /* AsyncOperation.swift in Sources */,
 				DC391EE9231291F800983DF9 /* Image.swift in Sources */,
+				DC6289C72313CE6C000A652E /* Gist.swift in Sources */,
 				DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */,
 				DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */,
+				DC6289B42313BB4E000A652E /* BaseDBOperation.swift in Sources */,
 				DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */,
 				DC391EC32312845300983DF9 /* NotesViewCell.swift in Sources */,
 				DC827E21230BE4DF00339EF0 /* Typealias.swift in Sources */,
 				DC391EF52312A05200983DF9 /* ImageCollectionViewCell.swift in Sources */,
 				DC391EB72312837700983DF9 /* NibLoadable.swift in Sources */,
+				DC6289B22313BB48000A652E /* SaveNoteDBOperation.swift in Sources */,
 				DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */,
+				DC6289CB2313D1E3000A652E /* GithubAPI.swift in Sources */,
 				DC3D59FB230AF85200E69B1F /* CustomTextView.swift in Sources */,
+				DC6289D22313D40E000A652E /* AuthViewController.swift in Sources */,
+				DC6289BA2313BC3C000A652E /* LoadNotesBackendOperation.swift in Sources */,
 				DC391EFF2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift in Sources */,
+				DC6289C42313BCD2000A652E /* RemoveNoteOperation.swift in Sources */,
 				DC1F39C2230D988A0092968D /* PickerView.swift in Sources */,
 				DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */,
+				DC6289CF2313D378000A652E /* PostGist.swift in Sources */,
+				DC6289C02313BCB6000A652E /* RemoveNoteDBOperation.swift in Sources */,
 				DC827E24230BE98100339EF0 /* ColorPalleteView.swift in Sources */,
 				DC391F022312C02900983DF9 /* ImagePickerManager.swift in Sources */,
 				DC827E28230BE9E600339EF0 /* ColorPickerViewController.swift in Sources */,
@@ -661,15 +771,21 @@
 				DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
 				DC391EFA2312AF8400983DF9 /* ImageViewerViewController.swift in Sources */,
+				DC6289B62313BB60000A652E /* SaveNoteOperation.swift in Sources */,
+				DC6289C92313CEE3000A652E /* GistFile.swift in Sources */,
 				DC985178230A9A9200884885 /* Note.swift in Sources */,
 				DC391EB4231280CB00983DF9 /* GalleryViewController.swift in Sources */,
 				DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */,
+				DC6289C22313BCC5000A652E /* LoadNotesOperation.swift in Sources */,
+				DC6289CD2313D2C1000A652E /* UserDefaults.swift in Sources */,
+				DC6289B82313BC33000A652E /* SaveNotesBackendOperation.swift in Sources */,
 				DC391EB92312838800983DF9 /* UITableView.swift in Sources */,
 				DC391EB0231280BB00983DF9 /* NotesViewController.swift in Sources */,
 				DC98517D230A9AF100884885 /* UIColor.swift in Sources */,
 				DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */,
 				DC391EE52312914E00983DF9 /* UICollectionView .swift in Sources */,
 				DC3D59F2230AF71500E69B1F /* EditViewController.swift in Sources */,
+				DC6289BE2313BCAB000A652E /* LoadNotesDBOperation.swift in Sources */,
 				DC391EED231294CC00983DF9 /* ImageNotebook.swift in Sources */,
 				DC391EBE2312840300983DF9 /* NotesTableViewCell.swift in Sources */,
 			);
@@ -831,6 +947,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGGCZN83K2;
 				INFOPLIST_FILE = "$(SRCROOT)/Notes/Sources/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -849,6 +966,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UGGCZN83K2;
 				INFOPLIST_FILE = "$(SRCROOT)/Notes/Sources/Application/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

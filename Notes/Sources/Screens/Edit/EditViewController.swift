@@ -105,8 +105,16 @@ private extension EditViewController {
 			destructionDate: editContainerView.date
 		)
 		
-		fileNotebook?.add(updateNote)
-		fileNotebook?.saveToFile()
+		guard let notebook = fileNotebook else { return }
+		
+		let saveNoteOperation = SaveNoteOperation(
+			note: updateNote,
+			notebook: notebook,
+			backendQueue: backendQueue,
+			dbQueue: dbQueue
+		)
+		
+		commonQueue.addOperation(saveNoteOperation)
 	}
 	
 	func newNote() {
@@ -123,8 +131,16 @@ private extension EditViewController {
 										destructionDate: editContainerView.date
 		)
 		
-		fileNotebook?.add(note)
-		fileNotebook?.saveToFile()
+		guard let notebook = fileNotebook else { return }
+		
+		let saveNoteOperation = SaveNoteOperation(
+			note: note,
+			notebook: notebook,
+			backendQueue: backendQueue,
+			dbQueue: dbQueue
+		)
+		
+		commonQueue.addOperation(saveNoteOperation)
 	}
 	
 	func saveNote() {
