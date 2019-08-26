@@ -11,8 +11,8 @@ import UIKit
 class NotesViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
-	let fileNotebook = FileNotebook()
-	var notes = [Note]()
+	private let fileNotebook = FileNotebook()
+	private var notes = [Note]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -21,7 +21,7 @@ class NotesViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		fileNotebook.loadFromFile()
+		notes = fileNotebook.notes
 		tableView.reloadData()
 		self.tabBarIsHidden(false)
 	}
@@ -37,6 +37,7 @@ private extension NotesViewController {
 	func setup() {
 		setupTableView()
 		setupNavigationBar()
+		setupRefreshControl()
 		showAuthController()
 	}
 	
@@ -47,7 +48,14 @@ private extension NotesViewController {
 		tableView.register(cellType: NotesTableViewCell.self)
 	}
 	
-	func loadNotesOperation() {
+	func setupRefreshControl() {
+		let refreshControl = UIRefreshControl()
+		refreshControl.addTarget(self, action: #selector(loadNotesOperation), for: .valueChanged)
+		tableView.refreshControl = refreshControl
+		tableView.refreshControl?.beginRefreshing()
+	}
+	
+	@objc func loadNotesOperation() {
 		let loadNotesOperation = LoadNotesOperation(
 			notebook: fileNotebook,
 			backendQueue: backendQueue,
@@ -56,7 +64,12 @@ private extension NotesViewController {
 		
 		loadNotesOperation.completionBlock = {
 			DispatchQueue.main.async { [weak self] in
-				guard let `self` = self else { return }
+				guard
+					let `self` = self,
+					let result = loadNotesOperation.result
+					else { return }
+				self.notes = result
+				self.tableView.refreshControl?.endRefreshing()
 				self.tableView.reloadData()
 			}
 		}
@@ -65,7 +78,6 @@ private extension NotesViewController {
 	}
 	
 	func setupNavigationBar() {
-		navigationController?.navigationBar.prefersLargeTitles = true
 		navigationItem.leftBarButtonItem = editButtonItem
 		navigationItem.rightBarButtonItem = UIBarButtonItem(
 			barButtonSystemItem: .add, target: self,
@@ -99,12 +111,12 @@ private extension NotesViewController {
 // MARK: - UITableViewDataSource
 extension NotesViewController: UITableViewDataSource {
 	func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return fileNotebook.notes.count
+		return notes.count
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: NotesTableViewCell = tableView.dequeueCell(for: indexPath)
-		let note = fileNotebook.notes[indexPath.row]
+		let note = notes[indexPath.row]
 		cell.configure(note: note)
 		return cell
 	}
@@ -116,7 +128,8 @@ extension NotesViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, commit editingStyle:
 		UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		guard editingStyle == .delete else { return }
-		let note = fileNotebook.notes[indexPath.row]
+		let note = notes[indexPath.row]
+		notes.remove(at: indexPath.row)
 		let removeNoteOperation = RemoveNoteOperation(
 			note: note,
 			notebook: fileNotebook,

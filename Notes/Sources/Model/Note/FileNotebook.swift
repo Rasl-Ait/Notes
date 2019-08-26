@@ -28,6 +28,11 @@ class FileNotebook {
 		DDLogInfo("updated note with UID=\(note.uid)")
 	}
 	
+	func updateData(result: [Note]) {
+		notes = result
+		saveToFile()
+	}
+	
 	// Функция для удаления заметки по индексу
 	public func remove(with uid: String) {
 		guard let index = firstIndex(with: uid) else {

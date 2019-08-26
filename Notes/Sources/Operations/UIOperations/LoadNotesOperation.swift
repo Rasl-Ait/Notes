@@ -12,7 +12,7 @@ class LoadNotesOperation: AsyncOperation {
 	private let loadToDb: LoadNotesDBOperation
 	private let dbQueue: OperationQueue
 	
-	private(set) var result: Bool? = false
+	private(set) var result: [Note]?
 	
 	init(notebook: FileNotebook,
 			 backendQueue: OperationQueue,
@@ -24,13 +24,14 @@ class LoadNotesOperation: AsyncOperation {
 		super.init()
 		
 		loadToDb.completionBlock = {
-			let loadToBackend = LoadNotesBackendOperation(notes: notebook.notes)
+			let loadToBackend = LoadNotesBackendOperation()
 			loadToBackend.completionBlock = {
 				switch loadToBackend.result! {
-				case .success:
-					self.result = true
+				case .success(let notes):
+					notebook.updateData(result: notes)
+					self.result = notes
 				case .failure:
-					self.result = false
+					self.result = self.loadToDb.result
 				}
 				self.state = .finished
 			}
