@@ -23,6 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		setupLogger()
 		setupDefaultColors()
 		setupTabBarController()
+		
 		return true
 	}
 	

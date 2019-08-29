@@ -12,6 +12,7 @@ class LoadNotesDBOperation: BaseDBOperation {
 	private(set) var result: [Note]?
 	
 	override func main() {
+		notebook.loadFromFile()
 		result = notebook.notes
 		self.state = .finished
 	}

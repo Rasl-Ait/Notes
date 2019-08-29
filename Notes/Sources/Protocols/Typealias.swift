@@ -10,3 +10,5 @@ import Foundation
 
 typealias ItemClosure<T> = ((T) -> Void)
 typealias VoidClosure = (() -> Void)
+typealias ApiCompletionBlock<T : Decodable> = (Result<T, Error>) -> Void
+typealias CompletionBlock<T> = (Result<T, Error>) -> Void

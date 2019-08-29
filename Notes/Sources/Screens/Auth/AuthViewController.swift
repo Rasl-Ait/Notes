@@ -19,10 +19,6 @@ class AuthViewController: UIViewController {
 	
 	weak var delegate: AuthViewControllerDelegate?
 	
-	private let scheme = "ioscoursenotes" // схема для callback
-	private let clientId = "186360ce28f9005480f7" // здесь должен быть ID вашего зарегистрированного приложения
-	private let clientSecret = "59bee110b7a9fe1f63907e94b66603d77064bbfb"
-	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setupViews()
@@ -45,11 +41,11 @@ class AuthViewController: UIViewController {
 	}
 	
 	private var tokenGetRequest: URLRequest? {
-		guard var urlComponents = URLComponents(string: "https://github.com/login/oauth/authorize") else { return nil }
+		guard var urlComponents = URLComponents(string: AuthAPI.authorize) else { return nil }
 		
 		urlComponents.queryItems = [
-			URLQueryItem(name: "client_id", value: "\(clientId)"),
-			URLQueryItem(name: "scope", value: "gist")
+			URLQueryItem(name: "client_id", value: "\(AuthAPI.clientId)"),
+			URLQueryItem(name: "scope", value: AuthAPI.gist)
 		]
 		
 		guard let url = urlComponents.url else { return nil }
@@ -64,20 +60,20 @@ extension AuthViewController: WKNavigationDelegate {
 	}
 	
 	func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-		if let url = navigationAction.request.url, url.scheme == scheme {
-			let tokenPath: String = "https://github.com/login/oauth/access_token"
+		if let url = navigationAction.request.url, url.scheme == AuthAPI.callback {
+			let tokenPath: String = AuthAPI.tokenPath
 			let code = codeResponse(url)
 			
 			guard var components = URLComponents(string: tokenPath) else { return }
-			components.queryItems = [URLQueryItem(name: "client_id", value: clientId),
-															 URLQueryItem(name: "client_secret", value: clientSecret),
+			components.queryItems = [URLQueryItem(name: "client_id", value: AuthAPI.clientId),
+															 URLQueryItem(name: "client_secret", value: AuthAPI.clientSecret),
 															 URLQueryItem(name: "code", value: code)]
 			
 			guard let url = components.url else { return }
 			var request = URLRequest(url: url)
-			request.httpMethod = "POST"
-			request.setValue("application/json", forHTTPHeaderField: "Accept")
-			request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+			request.httpMethod = HTTPMethods.post.rawValue
+			let headers = [HTTPHeader.accept("application/json")]
+			headers.forEach { request.addValue($0.header.value, forHTTPHeaderField: $0.header.field) }
 			
 			URLSession.shared.dataTask(with: request) { (data, response, error) in
 				if let response = response as? HTTPURLResponse {

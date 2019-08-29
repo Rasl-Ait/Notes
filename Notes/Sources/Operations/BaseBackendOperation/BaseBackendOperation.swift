@@ -9,14 +9,7 @@ enum NetworkError {
 }
 
 class BaseBackendOperation: AsyncOperation {
-	internal let session: URLSession
-	
 	override init() {
-		//создание URLSession без кеша
-		let config = URLSessionConfiguration.default
-		config.requestCachePolicy = .reloadIgnoringLocalCacheData
-		config.urlCache = nil
-		session = URLSession.init(configuration: config)
 		super.init()
 	}
 }

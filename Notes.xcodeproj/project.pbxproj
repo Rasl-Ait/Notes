@@ -54,6 +54,10 @@
 		DC6289CD2313D2C1000A652E /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289CC2313D2C1000A652E /* UserDefaults.swift */; };
 		DC6289CF2313D378000A652E /* PostGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289CE2313D378000A652E /* PostGist.swift */; };
 		DC6289D22313D40E000A652E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D12313D40E000A652E /* AuthViewController.swift */; };
+		DC6289D523143123000A652E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D423143123000A652E /* NetworkService.swift */; };
+		DC6289D8231439E8000A652E /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D7231439E8000A652E /* DataStore.swift */; };
+		DC6289DA23143D27000A652E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D923143D27000A652E /* NetworkDataFetcher.swift */; };
+		DC6289DC231444EF000A652E /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289DB231444EF000A652E /* DataFetcherService.swift */; };
 		DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1A230BCFE000339EF0 /* ColorView.swift */; };
 		DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */; };
 		DC827E21230BE4DF00339EF0 /* Typealias.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E20230BE4DF00339EF0 /* Typealias.swift */; };
@@ -73,6 +77,10 @@
 		DC985190230AB06000884885 /* NoteTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC98518F230AB06000884885 /* NoteTests.swift */; };
 		DC985193230ABFE000884885 /* FileNotebookTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985192230ABFE000884885 /* FileNotebookTests.swift */; };
 		DC985197230AE74000884885 /* NoteExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC985196230AE74000884885 /* NoteExtensionTests.swift */; };
+		DC99A3F623166E7300C5FC50 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99A3F523166E7300C5FC50 /* APIError.swift */; };
+		DC99A3F8231671B800C5FC50 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99A3F7231671B800C5FC50 /* HTTPMethods.swift */; };
+		DC99A3FF2316A92500C5FC50 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99A3FE2316A92500C5FC50 /* AuthAPI.swift */; };
+		DCA993C223154495001656BB /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA993C123154495001656BB /* HTTPHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +144,10 @@
 		DC6289CC2313D2C1000A652E /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		DC6289CE2313D378000A652E /* PostGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGist.swift; sourceTree = "<group>"; };
 		DC6289D12313D40E000A652E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		DC6289D423143123000A652E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DC6289D7231439E8000A652E /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		DC6289D923143D27000A652E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
+		DC6289DB231444EF000A652E /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
 		DC827E1A230BCFE000339EF0 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		DC827E1D230BDCC400339EF0 /* СheckmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "СheckmarkView.swift"; sourceTree = "<group>"; };
 		DC827E20230BE4DF00339EF0 /* Typealias.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealias.swift; sourceTree = "<group>"; };
@@ -159,6 +171,10 @@
 		DC98518F230AB06000884885 /* NoteTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTests.swift; sourceTree = "<group>"; };
 		DC985192230ABFE000884885 /* FileNotebookTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebookTests.swift; sourceTree = "<group>"; };
 		DC985196230AE74000884885 /* NoteExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtensionTests.swift; sourceTree = "<group>"; };
+		DC99A3F523166E7300C5FC50 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		DC99A3F7231671B800C5FC50 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
+		DC99A3FE2316A92500C5FC50 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		DCA993C123154495001656BB /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
 		E531F577C52261B4309AF65E /* libPods-NotesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -410,6 +426,28 @@
 			path = Auth;
 			sourceTree = "<group>";
 		};
+		DC6289D3231430FC000A652E /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				DC99A3F92316920100C5FC50 /* API */,
+				DC99A3F7231671B800C5FC50 /* HTTPMethods.swift */,
+				DCA993C123154495001656BB /* HTTPHeader.swift */,
+				DC99A3F523166E7300C5FC50 /* APIError.swift */,
+				DC6289D423143123000A652E /* NetworkService.swift */,
+				DC6289D923143D27000A652E /* NetworkDataFetcher.swift */,
+				DC6289DB231444EF000A652E /* DataFetcherService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		DC6289D6231439CB000A652E /* Stored */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289D7231439E8000A652E /* DataStore.swift */,
+			);
+			path = Stored;
+			sourceTree = "<group>";
+		};
 		DC827E19230BCFBD00339EF0 /* Color */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,6 +525,8 @@
 		DC92EBA9230A7CB9003F5A36 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				DC6289D6231439CB000A652E /* Stored */,
+				DC6289D3231430FC000A652E /* Services */,
 				DC92EBAB230A7D3B003F5A36 /* Application */,
 				DC6289AB2313BA3F000A652E /* Operations */,
 				DC827E1F230BE49B00339EF0 /* Protocols */,
@@ -536,7 +576,6 @@
 				DC6289C52313CE48000A652E /* Gist */,
 				DC391EE7231291EA00983DF9 /* Image */,
 				DC391EE6231291E200983DF9 /* Note */,
-				DC6289CA2313D1E3000A652E /* GithubAPI.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -580,6 +619,15 @@
 				DC3D59F1230AF71500E69B1F /* EditViewController.xib */,
 			);
 			path = Edit;
+			sourceTree = "<group>";
+		};
+		DC99A3F92316920100C5FC50 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				DC6289CA2313D1E3000A652E /* GithubAPI.swift */,
+				DC99A3FE2316A92500C5FC50 /* AuthAPI.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -743,6 +791,9 @@
 				DC6289BC2313BC70000A652E /* BaseBackendOperation.swift in Sources */,
 				DC6289AD2313BA55000A652E /* AsyncOperation.swift in Sources */,
 				DC391EE9231291F800983DF9 /* Image.swift in Sources */,
+				DC99A3FF2316A92500C5FC50 /* AuthAPI.swift in Sources */,
+				DC6289DA23143D27000A652E /* NetworkDataFetcher.swift in Sources */,
+				DC6289DC231444EF000A652E /* DataFetcherService.swift in Sources */,
 				DC6289C72313CE6C000A652E /* Gist.swift in Sources */,
 				DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */,
 				DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */,
@@ -758,6 +809,7 @@
 				DC3D59FB230AF85200E69B1F /* CustomTextView.swift in Sources */,
 				DC6289D22313D40E000A652E /* AuthViewController.swift in Sources */,
 				DC6289BA2313BC3C000A652E /* LoadNotesBackendOperation.swift in Sources */,
+				DC6289D8231439E8000A652E /* DataStore.swift in Sources */,
 				DC391EFF2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift in Sources */,
 				DC6289C42313BCD2000A652E /* RemoveNoteOperation.swift in Sources */,
 				DC1F39C2230D988A0092968D /* PickerView.swift in Sources */,
@@ -769,18 +821,22 @@
 				DC827E28230BE9E600339EF0 /* ColorPickerViewController.swift in Sources */,
 				DC3D59FC230AF85200E69B1F /* CustomTextField.swift in Sources */,
 				DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */,
+				DC6289D523143123000A652E /* NetworkService.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
 				DC391EFA2312AF8400983DF9 /* ImageViewerViewController.swift in Sources */,
+				DCA993C223154495001656BB /* HTTPHeader.swift in Sources */,
 				DC6289B62313BB60000A652E /* SaveNoteOperation.swift in Sources */,
 				DC6289C92313CEE3000A652E /* GistFile.swift in Sources */,
 				DC985178230A9A9200884885 /* Note.swift in Sources */,
 				DC391EB4231280CB00983DF9 /* GalleryViewController.swift in Sources */,
 				DC827E2B230BEB3300339EF0 /* ContainerView.swift in Sources */,
 				DC6289C22313BCC5000A652E /* LoadNotesOperation.swift in Sources */,
+				DC99A3F623166E7300C5FC50 /* APIError.swift in Sources */,
 				DC6289CD2313D2C1000A652E /* UserDefaults.swift in Sources */,
 				DC6289B82313BC33000A652E /* SaveNotesBackendOperation.swift in Sources */,
 				DC391EB92312838800983DF9 /* UITableView.swift in Sources */,
 				DC391EB0231280BB00983DF9 /* NotesViewController.swift in Sources */,
+				DC99A3F8231671B800C5FC50 /* HTTPMethods.swift in Sources */,
 				DC98517D230A9AF100884885 /* UIColor.swift in Sources */,
 				DC3D59F7230AF7EB00E69B1F /* EditContainerVIew.swift in Sources */,
 				DC391EE52312914E00983DF9 /* UICollectionView .swift in Sources */,

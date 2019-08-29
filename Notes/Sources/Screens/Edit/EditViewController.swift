@@ -113,7 +113,6 @@ private extension EditViewController {
 			backendQueue: backendQueue,
 			dbQueue: dbQueue
 		)
-		
 		commonQueue.addOperation(saveNoteOperation)
 	}
 	

@@ -52,7 +52,7 @@ private extension NotesViewController {
 		let refreshControl = UIRefreshControl()
 		refreshControl.addTarget(self, action: #selector(loadNotesOperation), for: .valueChanged)
 		tableView.refreshControl = refreshControl
-		tableView.refreshControl?.beginRefreshing()
+	  tableView.refreshControl?.beginRefreshing()
 	}
 	
 	@objc func loadNotesOperation() {
