@@ -8,15 +8,32 @@
 
 import UIKit
 
-class EditViewController: UIViewController {
+protocol EditView: class {
+	var note: Note? { get }
+	var database: NoteStorageProtocol! { get }
+	var color: UIColor? { get set }
+}
+
+class EditViewController: UIViewController, EditView {
 	@IBOutlet weak var scrollView: UIScrollView!
 	@IBOutlet weak var editContainerView: EditContainerView!
 	
-	private var color: UIColor?
+	var color: UIColor?
 	private var uid: String?
 	
 	var note: Note?
-	var fileNotebook: FileNotebook?
+	var database: NoteStorageProtocol!
+	var presenter: EditViewPresenterProtocol!
+	var configurator: EditConfiguratorProtocol!
+	
+	init(configurator: EditConfiguratorProtocol) {
+		self.configurator = configurator
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -49,7 +66,7 @@ class EditViewController: UIViewController {
 			name: UIResponder.keyboardWillChangeFrameNotification,
 			object: nil
 		)
-		saveNote()
+		presenter.viewWillDisappear()
 	}
 }
 
@@ -60,94 +77,12 @@ private extension EditViewController {
 		addTapGesture()
 		uid = UUID().uuidString
 		scrollView.keyboardDismissMode = .interactive
-		updateUI()
-		
-		editContainerView.colorDidChange = { [weak self] color in
-			guard let `self` = self else { return }
-			self.color = color
-		}
-		
-		editContainerView.colorPickerViewClicked = { [weak self] in
-			guard let `self` = self else { return }
-			self.pushColorPicker()
-		}
-	}
-	
-	func pushColorPicker() {
-		let colorPickerController = ColorPickerViewController()
-		colorPickerController.delegate = self
-		colorPickerController.color = editContainerView.bColor
-		self.navigationController?.pushViewController(colorPickerController, animated: true)
-	}
-	
-	func updateUI() {
-		editContainerView.set(
-			title: note?.title ?? "",
-			content: note?.content ?? editContainerView.contentText!,
-			color: note?.color ?? editContainerView.bColor, date:
-			note?.destructionDate
-		)
-	}
-	
-	func updateNote() {
-		guard
-			let note = note,
-			let title = editContainerView.titleText, !title.isEmpty,
-			let content = editContainerView.contentText, !content.isEmpty
-			else { return }
-		
-		let updateNote = Note(
-			uid: note.uid,
-			title: title,
-			content: content,
-			color: self.color ?? note.color,
-			importance: .normal,
-			destructionDate: editContainerView.date
-		)
-		
-		guard let notebook = fileNotebook else { return }
-		
-		let saveNoteOperation = SaveNoteOperation(
-			note: updateNote,
-			notebook: notebook,
-			backendQueue: backendQueue,
-			dbQueue: dbQueue
-		)
-		commonQueue.addOperation(saveNoteOperation)
-	}
-	
-	func newNote() {
-		guard
-			let uid = uid,
-			let title = editContainerView.titleText, !title.isEmpty,
-			let content = editContainerView.contentText, !content.isEmpty
-			else { return }
-		
-		let note = Note(uid: uid, title: title,
-										content: content,
-										color: color ?? .white ,
-										importance: .normal,
-										destructionDate: editContainerView.date
-		)
-		
-		guard let notebook = fileNotebook else { return }
-		
-		let saveNoteOperation = SaveNoteOperation(
-			note: note,
-			notebook: notebook,
-			backendQueue: backendQueue,
-			dbQueue: dbQueue
-		)
-		
-		commonQueue.addOperation(saveNoteOperation)
-	}
-	
-	func saveNote() {
-		note != nil ? updateNote() : newNote()
+		configurator.configure(editViewController: self)
+		presenter.viewDidLoad(delegate: self)
+		presenter.confugure(note: note)
 	}
 	
 	// MARK: - Actions
-	
 	@objc func keyboardWillShowHide(notification: Notification) {
 		guard let userInfo = notification.userInfo else { return }
 		let safeAreaBottom = view.safeAreaInsets.bottom
@@ -192,6 +127,7 @@ private extension EditViewController {
 	}
 }
 
+// MARK: - ColorPickerViewControllerDelegate
 extension EditViewController: ColorPickerViewControllerDelegate {
 	func handleColor(color: UIColor) {
 		self.color = color

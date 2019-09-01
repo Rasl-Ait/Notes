@@ -23,10 +23,17 @@ class NotesViewCell: UIView {
 		setupViews()
 	}
 	
-	func set(viewColor: UIColor, name: String, content: String) {
-		titleLabel.text = name
-		backgroundView.backgroundColor = viewColor
+	func setTitle(title: String) {
+		titleLabel.text = title
+	}
+	
+	func setContentText(content: String) {
 		contentLabel.text = content
+	}
+	
+	func setBackgroundView(color: UIColor) {
+		backgroundView.backgroundColor = color
+
 	}
 	
 	func prepareReuse() {

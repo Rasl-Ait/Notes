@@ -13,8 +13,16 @@ class GalleryViewController: UIViewController {
 	
 	private let minItemSpacing: CGFloat = 4.0
 	private let countCells: CGFloat = 3.0
-	private let imageNotebook = ImageNotebook()
+	private let imageNotebook: FileImageNotebookProtocol
 
+	init(imageNotebook: FileImageNotebookProtocol = ImageNotebook()) {
+		self.imageNotebook = imageNotebook
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	lazy var imagePickerManager: ImagePickerManager = {
 		let manager = ImagePickerManager(presentingController: self)

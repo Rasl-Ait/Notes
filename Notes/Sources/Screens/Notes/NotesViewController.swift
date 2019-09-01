@@ -8,21 +8,37 @@
 
 import UIKit
 
+protocol NotesView: class {
+	func refreshNotesView()
+	func deleteAnimated(row: Int)
+}
+
 class NotesViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 	
-	private let fileNotebook = FileNotebook()
-	private var notes = [Note]()
+	var presenter: NotesViewPresenterProtocol!
+	var configurator: NotesConfiguratorProtocol!
+	var database: NoteStorageProtocol!
+	
+	init(configurator: NotesConfiguratorProtocol, database: NoteStorageProtocol!) {
+		self.configurator = configurator
+		self.database = database
+		super.init(nibName: nil, bundle: nil)
+	}
+	
+	required init?(coder aDecoder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		configurator.configure(notesViewController: self)
 		setup()
 	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		notes = fileNotebook.notes
-		tableView.reloadData()
+		presenter.viewDidAppear()
 		self.tabBarIsHidden(false)
 	}
 	
@@ -52,29 +68,11 @@ private extension NotesViewController {
 		let refreshControl = UIRefreshControl()
 		refreshControl.addTarget(self, action: #selector(loadNotesOperation), for: .valueChanged)
 		tableView.refreshControl = refreshControl
-	  tableView.refreshControl?.beginRefreshing()
+		tableView.refreshControl?.beginRefreshing()
 	}
 	
 	@objc func loadNotesOperation() {
-		let loadNotesOperation = LoadNotesOperation(
-			notebook: fileNotebook,
-			backendQueue: backendQueue,
-			dbQueue: dbQueue
-		)
-		
-		loadNotesOperation.completionBlock = {
-			DispatchQueue.main.async { [weak self] in
-				guard
-					let `self` = self,
-					let result = loadNotesOperation.result
-					else { return }
-				self.notes = result
-				self.tableView.refreshControl?.endRefreshing()
-				self.tableView.reloadData()
-			}
-		}
-		
-		commonQueue.addOperation(loadNotesOperation)
+		presenter.viewDidLoad()
 	}
 	
 	func setupNavigationBar() {
@@ -86,10 +84,7 @@ private extension NotesViewController {
 	}
 	
 	@objc func addBarButtonClicked() {
-		let editController = EditViewController()
-		editController.fileNotebook = fileNotebook
-		tabBarIsHidden(true)
-		navigationController?.pushViewController(editController, animated: true)
+		presenter.addButtonPressed()
 	}
 	
 	func tabBarIsHidden(_ bool: Bool) {
@@ -103,21 +98,31 @@ private extension NotesViewController {
 			self.present(authView, animated: true, completion: nil)
 			return
 		}
-		
-		loadNotesOperation()
+		presenter.loadNotesOperation()
+	}
+}
+
+// MARK: - NotesView
+extension NotesViewController: NotesView {
+	func deleteAnimated(row: Int) {
+		tableView.deleteRows(at: [IndexPath(row: row, section:0)], with: .automatic)
+	}
+	
+	func refreshNotesView() {
+		tableView.reloadData()
+		tableView.refreshControl?.endRefreshing()
 	}
 }
 
 // MARK: - UITableViewDataSource
 extension NotesViewController: UITableViewDataSource {
 	func tableView( _ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return notes.count
+		return presenter.numberOfNotes
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: NotesTableViewCell = tableView.dequeueCell(for: indexPath)
-		let note = notes[indexPath.row]
-		cell.configure(note: note)
+		presenter.configure(cell: cell, forRow: indexPath.row)
 		return cell
 	}
 	
@@ -128,34 +133,16 @@ extension NotesViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, commit editingStyle:
 		UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
 		guard editingStyle == .delete else { return }
-		let note = notes[indexPath.row]
-		notes.remove(at: indexPath.row)
-		let removeNoteOperation = RemoveNoteOperation(
-			note: note,
-			notebook: fileNotebook,
-			backendQueue: backendQueue,
-			dbQueue: dbQueue
-		)
-		
-		commonQueue.addOperation(removeNoteOperation)
-		tableView.deleteRows(at: [indexPath], with: .automatic)
+		presenter.delete(row: indexPath.row)
 	}
 }
 
 // MARK: - UITableViewDelegate
 extension NotesViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		pushEdit(index: indexPath.row)
-		tableView.deselectRow(at: indexPath, animated: false)
-	}
-	
-	private func pushEdit(index: Int) {
-		let editController = EditViewController()
-		let note = fileNotebook.notes[index]
-		editController.note = note
-		editController.fileNotebook = fileNotebook
+		presenter.didSelect(row: indexPath.row)
 		tabBarIsHidden(true)
-		navigationController?.pushViewController(editController, animated: true)
+		tableView.deselectRow(at: indexPath, animated: false)
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

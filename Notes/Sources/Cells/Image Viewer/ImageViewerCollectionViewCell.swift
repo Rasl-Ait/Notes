@@ -25,7 +25,7 @@ class ImageViewerCollectionViewCell: UICollectionViewCell {
 	}
 	
 	func configure(_ model: Image) {
-		let path = getDocumentsDirectory().appendingPathComponent(model.originalImage)
+		let path = FileManager.getDocumentsDirectory().appendingPathComponent(model.originalImage)
 		let image = UIImage(contentsOfFile: path.path)
 		galleryImageView.image = image
 	}
@@ -46,12 +46,6 @@ private extension ImageViewerCollectionViewCell {
 	@objc func doubleTouches(recognizer: UITapGestureRecognizer) {
 		scrollView.zoomScale = 1.0
 		backgroundColor = .white
-	}
-	
-	func getDocumentsDirectory() -> URL {
-		let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-		let documentsDirectory = paths[0]
-		return documentsDirectory
 	}
 }
 

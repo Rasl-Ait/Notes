@@ -9,7 +9,7 @@
 import Foundation
 import CocoaLumberjack
 
-class ImageNotebook {
+class ImageNotebook: FileImageNotebookProtocol {
 	private(set) var images = [Image]()
 	
 	private let filename = "images.json"
@@ -44,30 +44,7 @@ class ImageNotebook {
 		return images.firstIndex(where: {$0.uid == uid})
 	}
 	
-	private func getCachesDirectory() -> URL {
-		let paths = fm.urls(for: .cachesDirectory, in: .userDomainMask)
-		return paths[0]
-	}
-	
-	func getDocumentsDirectory() -> URL {
-		let paths = fm.urls(for: .documentDirectory, in: .userDomainMask)
-		let documentsDirectory = paths[0]
-		return documentsDirectory
-	}
-	
-	private func getfileURL(filename: String) throws -> URL {
-		return getCachesDirectory().appendingPathComponent(filename)
-	}
-	
-	private func directoryExists(atPath filePath: String)-> Bool {
-		var isDir = ObjCBool(true)
-		return fm.fileExists(atPath: filePath, isDirectory: &isDir )
-	}
-	
-	private func createDirectory(withFolderName name: String)-> Bool {
-		let finalPath = getCachesDirectory().appendingPathComponent(name)
-		return directoryExists(atPath: finalPath.path)
-	}
+
 	
 	// функция для сериализации data из json
 	private func dataJson() -> Data? {
@@ -103,13 +80,13 @@ class ImageNotebook {
 		let thumbnailName = memoryName + ".thumb"
 		
 		do {
-			let imagePath = getDocumentsDirectory().appendingPathComponent(imageName)
+			let imagePath = FileManager.getDocumentsDirectory().appendingPathComponent(imageName)
 			if let jpegData = image.jpegData(compressionQuality: 0.8) {
 				try jpegData.write(to: imagePath, options: [.atomicWrite])
 			}
 			
 			if let thumbnail = resize(image: image, to: 200) {
-				let imagePath = getDocumentsDirectory().appendingPathComponent(thumbnailName)
+				let imagePath = FileManager.getDocumentsDirectory().appendingPathComponent(thumbnailName)
 				if let jpegData = thumbnail.jpegData(compressionQuality: 0.8) {
 					try jpegData.write(to: imagePath, options: [.atomicWrite])
 				}
@@ -124,13 +101,13 @@ class ImageNotebook {
 	// Функция для сохранения json данных в FileManager
 	public func saveToFile() {
 		let isDir: ObjCBool = false
-		let directory = getCachesDirectory()
-		guard let fileURL = try? getfileURL(filename: filename) else {
+		let directory = FileManager.getCachesDirectory()
+		guard let fileURL = try? FileManager.getfileURL(filename: filename) else {
 			DDLogError("Failed to get path")
 			return
 		}
 		
-		guard createDirectory(withFolderName: filename) ||
+		guard FileManager.createDirectory(withFolderName: filename) ||
 			isDir.boolValue == false else { return }
 		
 		
@@ -148,12 +125,12 @@ class ImageNotebook {
 	}
 	
 	func load(filename: String) -> URL {
-		return getDocumentsDirectory().appendingPathComponent(filename)
+		return FileManager.getDocumentsDirectory().appendingPathComponent(filename)
 	}
 	
 	// Функция для загрузки данных из FileManager
 	public func loadFromFile() {
-		guard let fileURL = try? getfileURL(filename: filename) else {
+		guard let fileURL = try? FileManager.getfileURL(filename: filename) else {
 			DDLogError("Failed to get path")
 			return
 		}

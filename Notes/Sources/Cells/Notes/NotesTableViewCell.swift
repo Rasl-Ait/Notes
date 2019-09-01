@@ -8,6 +8,12 @@
 
 import UIKit
 
+protocol NotesCellView {
+	func displayTitle(title: String)
+	func displayContent(content: String)
+	func displayColorView(color: UIColor)
+}
+
 class NotesTableViewCell: UITableViewCell {
 	@IBOutlet weak var notesViewCell: NotesViewCell!
 	
@@ -25,12 +31,19 @@ class NotesTableViewCell: UITableViewCell {
 	override func setSelected(_ selected: Bool, animated: Bool) {
 		super.setSelected(selected, animated: animated)
 	}
+}
+
+extension NotesTableViewCell: NotesCellView {
 	
-	func configure(note: Note) {
-		notesViewCell.set(
-			viewColor: note.color,
-			name: note.title,
-			content: note.content
-		)
+	func displayTitle(title: String) {
+		notesViewCell.setTitle(title: title)
+	}
+	
+	func displayContent(content: String) {
+		notesViewCell.setContentText(content: content)
+	}
+	
+	func displayColorView(color: UIColor) {
+		notesViewCell.setBackgroundView(color: color)
 	}
 }

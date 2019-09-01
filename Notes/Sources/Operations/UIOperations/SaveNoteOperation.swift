@@ -7,17 +7,17 @@ class SaveNoteOperation: AsyncOperation {
 		private(set) var result: SaveNotesBackendResult? = nil
 	
 	init(note: Note,
-			 notebook: FileNotebook,
+			 database: NoteStorageProtocol,
 			 backendQueue: OperationQueue,
 			 dbQueue: OperationQueue) {
 		
-		saveToDb = SaveNoteDBOperation(note: note, notebook: notebook)
+		saveToDb = SaveNoteDBOperation(note: note, database: database)
 		self.dbQueue = dbQueue
 		
 		super.init()
 		
 		saveToDb.completionBlock = {
-			let saveToBackend = SaveNotesBackendOperation(notes: notebook.notes)
+			let saveToBackend = SaveNotesBackendOperation(notes: database.notes)
 			saveToBackend.completionBlock = {
 				self.result = saveToBackend.result
 				self.state = .finished

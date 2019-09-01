@@ -55,7 +55,6 @@
 		DC6289CF2313D378000A652E /* PostGist.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289CE2313D378000A652E /* PostGist.swift */; };
 		DC6289D22313D40E000A652E /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D12313D40E000A652E /* AuthViewController.swift */; };
 		DC6289D523143123000A652E /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D423143123000A652E /* NetworkService.swift */; };
-		DC6289D8231439E8000A652E /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D7231439E8000A652E /* DataStore.swift */; };
 		DC6289DA23143D27000A652E /* NetworkDataFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289D923143D27000A652E /* NetworkDataFetcher.swift */; };
 		DC6289DC231444EF000A652E /* DataFetcherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC6289DB231444EF000A652E /* DataFetcherService.swift */; };
 		DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC827E1A230BCFE000339EF0 /* ColorView.swift */; };
@@ -80,7 +79,17 @@
 		DC99A3F623166E7300C5FC50 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99A3F523166E7300C5FC50 /* APIError.swift */; };
 		DC99A3F8231671B800C5FC50 /* HTTPMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99A3F7231671B800C5FC50 /* HTTPMethods.swift */; };
 		DC99A3FF2316A92500C5FC50 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC99A3FE2316A92500C5FC50 /* AuthAPI.swift */; };
+		DCA166F1231A5DCB00E432AB /* NotesViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA166F0231A5DCB00E432AB /* NotesViewPresenter.swift */; };
+		DCA166F3231A6BC400E432AB /* NotesConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA166F2231A6BC400E432AB /* NotesConfigurator.swift */; };
+		DCA166F5231A6DB800E432AB /* NotesViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA166F4231A6DB800E432AB /* NotesViewRouter.swift */; };
+		DCA166F7231A849800E432AB /* EditViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA166F6231A849800E432AB /* EditViewPresenter.swift */; };
+		DCA166F9231A90DA00E432AB /* EditConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA166F8231A90DA00E432AB /* EditConfigurator.swift */; };
+		DCA166FB231A911200E432AB /* EditViewRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA166FA231A911200E432AB /* EditViewRouter.swift */; };
 		DCA993C223154495001656BB /* HTTPHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA993C123154495001656BB /* HTTPHeader.swift */; };
+		DCD09B822317C0440006636B /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD09B812317C0440006636B /* FileManager.swift */; };
+		DCD09B842317C38D0006636B /* FileImageNotebookProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD09B832317C38D0006636B /* FileImageNotebookProtocol.swift */; };
+		DCD09B862317CE1F0006636B /* CoreDataStack .swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD09B852317CE1F0006636B /* CoreDataStack .swift */; };
+		DCD09B882317D52F0006636B /* DatabaseNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD09B872317D52F0006636B /* DatabaseNotebook.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -145,7 +154,6 @@
 		DC6289CE2313D378000A652E /* PostGist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostGist.swift; sourceTree = "<group>"; };
 		DC6289D12313D40E000A652E /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		DC6289D423143123000A652E /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
-		DC6289D7231439E8000A652E /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		DC6289D923143D27000A652E /* NetworkDataFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataFetcher.swift; sourceTree = "<group>"; };
 		DC6289DB231444EF000A652E /* DataFetcherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFetcherService.swift; sourceTree = "<group>"; };
 		DC827E1A230BCFE000339EF0 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
@@ -174,7 +182,17 @@
 		DC99A3F523166E7300C5FC50 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		DC99A3F7231671B800C5FC50 /* HTTPMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethods.swift; sourceTree = "<group>"; };
 		DC99A3FE2316A92500C5FC50 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		DCA166F0231A5DCB00E432AB /* NotesViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewPresenter.swift; sourceTree = "<group>"; };
+		DCA166F2231A6BC400E432AB /* NotesConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesConfigurator.swift; sourceTree = "<group>"; };
+		DCA166F4231A6DB800E432AB /* NotesViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewRouter.swift; sourceTree = "<group>"; };
+		DCA166F6231A849800E432AB /* EditViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewPresenter.swift; sourceTree = "<group>"; };
+		DCA166F8231A90DA00E432AB /* EditConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditConfigurator.swift; sourceTree = "<group>"; };
+		DCA166FA231A911200E432AB /* EditViewRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewRouter.swift; sourceTree = "<group>"; };
 		DCA993C123154495001656BB /* HTTPHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPHeader.swift; sourceTree = "<group>"; };
+		DCD09B812317C0440006636B /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileManager.swift; path = ../Model/FileManager.swift; sourceTree = "<group>"; };
+		DCD09B832317C38D0006636B /* FileImageNotebookProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileImageNotebookProtocol.swift; sourceTree = "<group>"; };
+		DCD09B852317CE1F0006636B /* CoreDataStack .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CoreDataStack .swift"; sourceTree = "<group>"; };
+		DCD09B872317D52F0006636B /* DatabaseNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseNotebook.swift; sourceTree = "<group>"; };
 		E531F577C52261B4309AF65E /* libPods-NotesTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-NotesTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -221,6 +239,9 @@
 		DC391EAC2312809F00983DF9 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				DCA166F2231A6BC400E432AB /* NotesConfigurator.swift */,
+				DCA166F4231A6DB800E432AB /* NotesViewRouter.swift */,
+				DCA166F0231A5DCB00E432AB /* NotesViewPresenter.swift */,
 				DC391EAE231280BB00983DF9 /* NotesViewController.swift */,
 				DC391EAF231280BB00983DF9 /* NotesViewController.xib */,
 			);
@@ -230,9 +251,9 @@
 		DC391EAD231280A500983DF9 /* Gallery */ = {
 			isa = PBXGroup;
 			children = (
+				DC391F012312C02900983DF9 /* ImagePickerManager.swift */,
 				DC391EB2231280CB00983DF9 /* GalleryViewController.swift */,
 				DC391EB3231280CB00983DF9 /* GalleryViewController.xib */,
-				DC391F012312C02900983DF9 /* ImagePickerManager.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -287,6 +308,7 @@
 			children = (
 				DC391EE8231291F800983DF9 /* Image.swift */,
 				DC391EEC231294CC00983DF9 /* ImageNotebook.swift */,
+				DCD09B832317C38D0006636B /* FileImageNotebookProtocol.swift */,
 			);
 			path = Image;
 			sourceTree = "<group>";
@@ -443,7 +465,8 @@
 		DC6289D6231439CB000A652E /* Stored */ = {
 			isa = PBXGroup;
 			children = (
-				DC6289D7231439E8000A652E /* DataStore.swift */,
+				DCD09B852317CE1F0006636B /* CoreDataStack .swift */,
+				DCD09B872317D52F0006636B /* DatabaseNotebook.swift */,
 			);
 			path = Stored;
 			sourceTree = "<group>";
@@ -588,6 +611,7 @@
 				DC98517C230A9AF100884885 /* UIColor.swift */,
 				DC391EB82312838800983DF9 /* UITableView.swift */,
 				DC391EE42312914E00983DF9 /* UICollectionView .swift */,
+				DCD09B812317C0440006636B /* FileManager.swift */,
 				DC6289CC2313D2C1000A652E /* UserDefaults.swift */,
 			);
 			path = Extensions;
@@ -615,6 +639,9 @@
 		DC985198230AF63400884885 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
+				DCA166F8231A90DA00E432AB /* EditConfigurator.swift */,
+				DCA166FA231A911200E432AB /* EditViewRouter.swift */,
+				DCA166F6231A849800E432AB /* EditViewPresenter.swift */,
 				DC3D59F0230AF71500E69B1F /* EditViewController.swift */,
 				DC3D59F1230AF71500E69B1F /* EditViewController.xib */,
 			);
@@ -791,37 +818,44 @@
 				DC6289BC2313BC70000A652E /* BaseBackendOperation.swift in Sources */,
 				DC6289AD2313BA55000A652E /* AsyncOperation.swift in Sources */,
 				DC391EE9231291F800983DF9 /* Image.swift in Sources */,
+				DCA166F1231A5DCB00E432AB /* NotesViewPresenter.swift in Sources */,
 				DC99A3FF2316A92500C5FC50 /* AuthAPI.swift in Sources */,
 				DC6289DA23143D27000A652E /* NetworkDataFetcher.swift in Sources */,
+				DCA166F3231A6BC400E432AB /* NotesConfigurator.swift in Sources */,
 				DC6289DC231444EF000A652E /* DataFetcherService.swift in Sources */,
 				DC6289C72313CE6C000A652E /* Gist.swift in Sources */,
 				DC827E1E230BDCC400339EF0 /* СheckmarkView.swift in Sources */,
 				DC3D59FF230AF9BF00E69B1F /* UIView.swift in Sources */,
 				DC6289B42313BB4E000A652E /* BaseDBOperation.swift in Sources */,
 				DC827E2D230C0FA500339EF0 /* SightView.swift in Sources */,
+				DCD09B842317C38D0006636B /* FileImageNotebookProtocol.swift in Sources */,
 				DC391EC32312845300983DF9 /* NotesViewCell.swift in Sources */,
 				DC827E21230BE4DF00339EF0 /* Typealias.swift in Sources */,
 				DC391EF52312A05200983DF9 /* ImageCollectionViewCell.swift in Sources */,
 				DC391EB72312837700983DF9 /* NibLoadable.swift in Sources */,
 				DC6289B22313BB48000A652E /* SaveNoteDBOperation.swift in Sources */,
 				DC827E1B230BCFE000339EF0 /* ColorView.swift in Sources */,
+				DCA166F5231A6DB800E432AB /* NotesViewRouter.swift in Sources */,
+				DCA166F7231A849800E432AB /* EditViewPresenter.swift in Sources */,
 				DC6289CB2313D1E3000A652E /* GithubAPI.swift in Sources */,
 				DC3D59FB230AF85200E69B1F /* CustomTextView.swift in Sources */,
 				DC6289D22313D40E000A652E /* AuthViewController.swift in Sources */,
 				DC6289BA2313BC3C000A652E /* LoadNotesBackendOperation.swift in Sources */,
-				DC6289D8231439E8000A652E /* DataStore.swift in Sources */,
 				DC391EFF2312AFDC00983DF9 /* ImageViewerCollectionViewCell.swift in Sources */,
 				DC6289C42313BCD2000A652E /* RemoveNoteOperation.swift in Sources */,
 				DC1F39C2230D988A0092968D /* PickerView.swift in Sources */,
 				DC98517A230A9ACB00884885 /* NoteExtensions.swift in Sources */,
 				DC6289CF2313D378000A652E /* PostGist.swift in Sources */,
+				DCD09B882317D52F0006636B /* DatabaseNotebook.swift in Sources */,
 				DC6289C02313BCB6000A652E /* RemoveNoteDBOperation.swift in Sources */,
 				DC827E24230BE98100339EF0 /* ColorPalleteView.swift in Sources */,
 				DC391F022312C02900983DF9 /* ImagePickerManager.swift in Sources */,
 				DC827E28230BE9E600339EF0 /* ColorPickerViewController.swift in Sources */,
 				DC3D59FC230AF85200E69B1F /* CustomTextField.swift in Sources */,
 				DC3D5A00230AF9BF00E69B1F /* UILabel+Intialization.swift in Sources */,
+				DCA166F9231A90DA00E432AB /* EditConfigurator.swift in Sources */,
 				DC6289D523143123000A652E /* NetworkService.swift in Sources */,
+				DCA166FB231A911200E432AB /* EditViewRouter.swift in Sources */,
 				DC92EB98230A7AC7003F5A36 /* AppDelegate.swift in Sources */,
 				DC391EFA2312AF8400983DF9 /* ImageViewerViewController.swift in Sources */,
 				DCA993C223154495001656BB /* HTTPHeader.swift in Sources */,
@@ -834,6 +868,7 @@
 				DC99A3F623166E7300C5FC50 /* APIError.swift in Sources */,
 				DC6289CD2313D2C1000A652E /* UserDefaults.swift in Sources */,
 				DC6289B82313BC33000A652E /* SaveNotesBackendOperation.swift in Sources */,
+				DCD09B862317CE1F0006636B /* CoreDataStack .swift in Sources */,
 				DC391EB92312838800983DF9 /* UITableView.swift in Sources */,
 				DC391EB0231280BB00983DF9 /* NotesViewController.swift in Sources */,
 				DC99A3F8231671B800C5FC50 /* HTTPMethods.swift in Sources */,
@@ -844,6 +879,7 @@
 				DC6289BE2313BCAB000A652E /* LoadNotesDBOperation.swift in Sources */,
 				DC391EED231294CC00983DF9 /* ImageNotebook.swift in Sources */,
 				DC391EBE2312840300983DF9 /* NotesTableViewCell.swift in Sources */,
+				DCD09B822317C0440006636B /* FileManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

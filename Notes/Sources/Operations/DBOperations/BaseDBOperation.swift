@@ -1,10 +1,10 @@
 import Foundation
 
 class BaseDBOperation: AsyncOperation {
-	let notebook: FileNotebook
+	let database: NoteStorageProtocol
 	
-	init(notebook: FileNotebook) {
-		self.notebook = notebook
+	init(database: NoteStorageProtocol) {
+		self.database = database
 		super.init()
 	}
 }

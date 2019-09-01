@@ -15,17 +15,17 @@ class RemoveNoteOperation: AsyncOperation {
 	private(set) var result: SaveNotesBackendResult? = nil
 	
 	init(note: Note,
-			 notebook: FileNotebook,
+			 database: NoteStorageProtocol,
 			 backendQueue: OperationQueue,
 			 dbQueue: OperationQueue) {
 		
-		removeToDb = RemoveNoteDBOperation(note: note, notebook: notebook)
+		removeToDb = RemoveNoteDBOperation(note: note, database: database)
 		self.dbQueue = dbQueue
 		
 		super.init()
 		
 		removeToDb.completionBlock = {
-			let saveToBackend = SaveNotesBackendOperation(notes: notebook.notes)
+			let saveToBackend = SaveNotesBackendOperation(notes: database.notes)
 			saveToBackend.completionBlock = {
 				self.result = saveToBackend.result
 				self.state = .finished

@@ -65,11 +65,20 @@ class EditContainerView: UIView {
 		choiceView(color: color)
 	}
 	
-	func set(title: String, content: String, color: UIColor, date: Date? = nil) {
-		bColor = color
+	func setTitle(title: String) {
 		titleTextField.text = title
+	}
+	
+	func setContentText(content: String) {
 		contentTextView.text = content
-		choiceView(color: color)
+	}
+	
+	func setBackgroundView(color: UIColor) {
+	bColor = color
+	choiceView(color: color)
+	}
+	
+	func setDate(date: Date? = nil) {
 		guard let date = date else { return }
 		datePicker.date = date
 	}

@@ -17,12 +17,15 @@ let commonQueue = OperationQueue()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
+	let coreDataTask = CoreDataStack(modelName: "Notes")
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		setupLogger()
 		setupDefaultColors()
 		setupTabBarController()
+		
+		//let core = DatabaseNotebook(backgroundContext: coreDataTask.backgroundContext)
 		
 		return true
 	}
@@ -58,8 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func setupTabBarController() {
+		let database = DatabaseNotebook(backgroundContext: coreDataTask.backgroundContext)
+		let fileDatabase = FileNotebook()
+    let configurator = NotesConfigurator()
 		let tabBarController = UITabBarController()
-		let notesController = NotesViewController()
+		let notesController = NotesViewController(configurator: configurator, database: fileDatabase )
 		let galleryController = GalleryViewController()
 		
 		notesController.title = "Заметки"
@@ -95,6 +101,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationDidBecomeActive(_ application: UIApplication) {}
 
-	func applicationWillTerminate(_ application: UIApplication) {}
+	func applicationWillTerminate(_ application: UIApplication) {
+		coreDataTask.saveContext()
+	}
 }
 

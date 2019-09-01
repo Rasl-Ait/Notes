@@ -11,14 +11,14 @@ import Foundation
 class RemoveNoteDBOperation: BaseDBOperation {
 	private let note: Note
 	
-	init(note: Note, notebook: FileNotebook) {
+	init(note: Note, database: NoteStorageProtocol) {
 		self.note = note
-		super.init(notebook: notebook)
+		super.init(database: database)
 	}
 	
 	override func main() {
-		notebook.remove(with: note.uid)
-		notebook.saveToFile()
+		database.remove(with: note.uid)
+		database.saveToFile()
 		self.state = .finished
 	}
 }

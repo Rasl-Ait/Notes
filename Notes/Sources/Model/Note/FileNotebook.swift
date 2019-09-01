@@ -9,7 +9,16 @@
 import Foundation
 import CocoaLumberjack
 
-class FileNotebook {
+protocol NoteStorageProtocol: class{
+	var notes: [Note] { get }
+	func add(_ note: Note)
+	func updateData(result: [Note])
+	func remove(with uid: String)
+	func saveToFile()
+	func loadFromFile()
+}
+
+class FileNotebook: NoteStorageProtocol {
 	private(set) var notes = [Note]()
 	
 	private let filename = "notes.json"
@@ -49,25 +58,6 @@ class FileNotebook {
 		return notes.firstIndex(where: {$0.uid == uid})
 	}
 	
-	private func getCachesDirectory() -> URL {
-		let paths = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask)
-		return paths[0]
-	}
-	
-	private func getfileURL(filename: String) throws -> URL {
-		return getCachesDirectory().appendingPathComponent(filename)
-	}
-	
-	private func directoryExists(atPath filePath: String)-> Bool {
-		var isDir = ObjCBool(true)
-		return fm.fileExists(atPath: filePath, isDirectory: &isDir )
-	}
-	
-	private func createDirectory(withFolderName name: String)-> Bool {
-		let finalPath = getCachesDirectory().appendingPathComponent(name)
-		return directoryExists(atPath: finalPath.path)
-	}
-	
 	private func dataJson() -> Data? {
 		let json = notes.map{ $0.json }
 		
@@ -83,13 +73,13 @@ class FileNotebook {
 	// Функция для сохранения заметок в FileManager
 	public func saveToFile() {
 		let isDir: ObjCBool = false
-		let directory = getCachesDirectory()
-		guard let fileURL = try? getfileURL(filename: filename) else {
+		let directory = FileManager.getCachesDirectory()
+		guard let fileURL = try? FileManager.getfileURL(filename: filename) else {
 			DDLogError("Failed to get path")
 			return
 		}
-		
-		guard createDirectory(withFolderName: filename) ||
+		print(directory)
+		guard FileManager.createDirectory(withFolderName: filename) ||
 			isDir.boolValue == false else { return }
 		
 		try? fm.createDirectory(at: directory,
@@ -107,7 +97,7 @@ class FileNotebook {
 	
 	// Функция для загрузки заметок из FileManager
 	public func loadFromFile() {
-		guard let fileURL = try? getfileURL(filename: filename) else {
+		guard let fileURL = try? FileManager.getfileURL(filename: filename) else {
 			DDLogError("Failed to get path")
 			return
 		}
