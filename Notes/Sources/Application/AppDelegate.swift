@@ -17,7 +17,7 @@ let commonQueue = OperationQueue()
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-	let coreDataTask = CoreDataStack(modelName: "Notes")
+	let coreDataTask = CoreDataStack(modelName: "Model")
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -61,11 +61,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	}
 	
 	func setupTabBarController() {
-		let database = DatabaseNotebook(backgroundContext: coreDataTask.backgroundContext)
-		let fileDatabase = FileNotebook()
+		let database = DatabaseNotebook(context: coreDataTask.managedContext, backgroundContext: coreDataTask.backgroundContext)
+		//let fileDatabase = FileNotebook()
     let configurator = NotesConfigurator()
 		let tabBarController = UITabBarController()
-		let notesController = NotesViewController(configurator: configurator, database: fileDatabase )
+		let notesController = NotesViewController(configurator: configurator, database: database )
 		let galleryController = GalleryViewController()
 		
 		notesController.title = "Заметки"

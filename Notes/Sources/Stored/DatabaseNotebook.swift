@@ -9,20 +9,35 @@
 import Foundation
 import CoreData
 
-class DatabaseNotebook: NoteStorageProtocol {
+class DatabaseNotebook {
 	var notes = [Note]()
 	
-
-	
 	private let backgroundContext: NSManagedObjectContext!
-	//private let note: Note
+	private let context: NSManagedObjectContext!
 	
-	init(backgroundContext: NSManagedObjectContext) {
+	init(context: NSManagedObjectContext, backgroundContext: NSManagedObjectContext) {
+		self.context = context
 		self.backgroundContext = backgroundContext
+		
+		NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave(notification:)), name: NSNotification.Name.NSManagedObjectContextDidSave, object: nil)
 	}
 	
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+	
+	@objc func managedObjectContextDidSave(notification: Notification) {
+		context.perform {
+			self.context.mergeChanges(fromContextDidSave: notification)
+		}
+	}
+}
+
+extension DatabaseNotebook: NoteStorageProtocol {
 	func add(_ note: Note) {
-		
+		let noteEntity = NoteEntity.find(byUid: note.uid, context: backgroundContext)
+		note.createNoteEntity(noteEntity)
+		saveToFile()
 	}
 	
 	func updateData(result: [Note]) {
@@ -30,32 +45,43 @@ class DatabaseNotebook: NoteStorageProtocol {
 	}
 	
 	func remove(with uid: String) {
+		let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "NoteEntity")
+		fetchRequest.includesPropertyValues = false
+		fetchRequest.predicate = NSPredicate(format: "uid == %@", uid)
+		let delete = NSBatchDeleteRequest(fetchRequest: fetchRequest)
 		
+		do {
+			try self.backgroundContext.execute(delete)
+			try self.backgroundContext.save()
+		} catch {
+			print ("There was an error with cleaning data...")
+		}
 	}
 	
 	func saveToFile() {
-		
-	}
-	
-	func loadFromFile() {
-		
-	}
-	
-//	func save() {
-//		backgroundContext.perform { [weak self] in
-//			guard let `self` = self else { return }
-//			let noteEntity = NoteEntity.find(byUid: self.note.uid, context: self.backgroundContext)
-//			self.note.createNoteEntity(noteEntity)
-//			self.backgroundSave()
-//			self.state = .finished
-//		}
-//	}
-	
-	private func backgroundSave() {
 		do {
 			try self.backgroundContext.save()
 		} catch {
 			print("не удалось сохранить данные \(error)")
 		}
+	}
+	
+	func loadFromFile() -> [Note] {
+		let request: NSFetchRequest<NoteEntity> = NoteEntity.fetchRequest()
+		let sortDescriptor = NSSortDescriptor(key: "title", ascending: true)
+		request.sortDescriptors = [sortDescriptor]
+		var notes = [Note]()
+		
+		do {
+			let fetchResult = try self.backgroundContext.fetch(request)
+			fetchResult.forEach {
+				
+				guard let note = Note.getNotes(model: $0) else { return }
+				notes.append(note)
+			}
+		} catch {
+			print(error)
+		}
+		return notes
 	}
 }

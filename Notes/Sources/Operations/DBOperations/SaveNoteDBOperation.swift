@@ -9,8 +9,10 @@ class SaveNoteDBOperation: BaseDBOperation {
 	}
 	
 	override func main() {
-		database.add(note)
-		database.saveToFile()
-		self.state = .finished
+		DispatchQueue.global(qos: .background).async { [weak self] in
+			guard let self = self else { return }
+			self.database.add(self.note)
+			self.state = .finished
+		}
 	}
 }

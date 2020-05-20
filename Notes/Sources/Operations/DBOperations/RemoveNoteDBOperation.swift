@@ -17,8 +17,10 @@ class RemoveNoteDBOperation: BaseDBOperation {
 	}
 	
 	override func main() {
-		database.remove(with: note.uid)
-		database.saveToFile()
-		self.state = .finished
+		DispatchQueue.global(qos: .background).async { [weak self] in
+			guard let self = self else { return }
+			self.database.remove(with: self.note.uid)
+			self.state = .finished
+		}
 	}
 }

@@ -9,13 +9,13 @@
 import Foundation
 import CocoaLumberjack
 
-protocol NoteStorageProtocol: class{
+protocol NoteStorageProtocol: class {
 	var notes: [Note] { get }
 	func add(_ note: Note)
 	func updateData(result: [Note])
 	func remove(with uid: String)
 	func saveToFile()
-	func loadFromFile()
+	func loadFromFile() -> [Note]
 }
 
 class FileNotebook: NoteStorageProtocol {
@@ -96,10 +96,10 @@ class FileNotebook: NoteStorageProtocol {
 	}
 	
 	// Функция для загрузки заметок из FileManager
-	public func loadFromFile() {
+	public func loadFromFile() -> [Note]  {
 		guard let fileURL = try? FileManager.getfileURL(filename: filename) else {
 			DDLogError("Failed to get path")
-			return
+			return []
 		}
 		
 		do {
@@ -107,7 +107,7 @@ class FileNotebook: NoteStorageProtocol {
 			guard let json = try JSONSerialization.jsonObject(with:
 				data, options: []) as? [[String:Any]] else {
 					DDLogError("Failed to decode notes from \(fileURL)")
-					return
+					return []
 			}
 			
 			notes = json.compactMap {
@@ -119,5 +119,7 @@ class FileNotebook: NoteStorageProtocol {
 		} catch {
 			DDLogError("Failed to load data from file \(fileURL)")
 		}
+		
+		return notes
 	}
 }

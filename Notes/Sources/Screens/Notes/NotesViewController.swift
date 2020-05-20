@@ -66,7 +66,9 @@ private extension NotesViewController {
 	
 	func setupRefreshControl() {
 		let refreshControl = UIRefreshControl()
+		refreshControl.tintColor = .red
 		refreshControl.addTarget(self, action: #selector(loadNotesOperation), for: .valueChanged)
+		
 		tableView.refreshControl = refreshControl
 		tableView.refreshControl?.beginRefreshing()
 	}
@@ -92,12 +94,12 @@ private extension NotesViewController {
 	}
 	
 	func showAuthController() {
-		guard !UserDefaults.token.isEmpty else {
-			let authView = AuthViewController()
-			authView.delegate = self
-			self.present(authView, animated: true, completion: nil)
-			return
-		}
+//		guard !UserDefaults.token.isEmpty else {
+//			let authView = AuthViewController()
+//			authView.delegate = self
+//			self.present(authView, animated: true, completion: nil)
+//			return
+//		}
 		presenter.loadNotesOperation()
 	}
 }

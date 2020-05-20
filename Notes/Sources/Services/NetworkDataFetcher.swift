@@ -10,11 +10,20 @@ import Foundation
 import CocoaLumberjack
 
 protocol DataFetcher {
-	func fetchGenericJSONData<T: Decodable>(path: String, allParams: [String : String], httpMethod: String, headers:
-		[HTTPHeader], httpBody: Data?, completion: @escaping ApiCompletionBlock<T>)
+	func fetchGenericJSONData<T: Decodable>(
+		path: String,
+		allParams: [String : String],
+		httpMethod: String,
+		headers: [HTTPHeader],
+		httpBody: Data?,
+		completion: @escaping ApiCompletionBlock<T>
+	)
 	
-func fetchJsonObject(urlString: String, httpMethod:
-	String, completion: @escaping CompletionBlock<[[String : Any]]?>)
+func fetchJsonObject(
+	urlString: String,
+	httpMethod: String,
+	completion: @escaping CompletionBlock<[[String : Any]]?>
+	)
 	
 	func fetchGenericEncodeData<T: Codable>(parameters: T) -> Data? 
 }
@@ -26,10 +35,16 @@ class NetworkDataFetcher: DataFetcher {
 		self.networking = networking
 	}
 	
-	func fetchGenericJSONData<T: Decodable>(path: String, allParams: [String : String], httpMethod: String, headers:
-		[HTTPHeader], httpBody: Data?, completion: @escaping ApiCompletionBlock<T>) {
-		networking.request(path: path, allParams: allParams, httpMethod: httpMethod, headers:
-		headers, httpBody: httpBody) { result in
+	func fetchGenericJSONData<T: Decodable>(
+		path: String,
+		allParams: [String : String],
+		httpMethod: String, headers: [HTTPHeader],
+		httpBody: Data?,
+		completion: @escaping ApiCompletionBlock<T>) {
+		networking.request(path: path,
+											 allParams: allParams,
+											 httpMethod: httpMethod,
+											 headers: headers, httpBody: httpBody) { result in
 	
 			switch result {
 			case .success(let data):

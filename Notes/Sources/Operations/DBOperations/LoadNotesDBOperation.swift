@@ -12,8 +12,12 @@ class LoadNotesDBOperation: BaseDBOperation {
 	private(set) var result: [Note]?
 	
 	override func main() {
-		database.loadFromFile()
-		result = database.notes
-		self.state = .finished
+		DispatchQueue.global(qos: .background).async { [weak self] in
+			guard let self = self else { return }
+			let notes = self.database.loadFromFile()
+			self.result = notes
+			self.state = .finished
+		}
 	}
 }
+

@@ -62,7 +62,7 @@ extension NotesViewPresenter: NotesViewPresenterProtocol {
 	}
 	
 	func viewDidAppear() {
-		notes = database.notes
+		notes = database.loadFromFile()
 		view?.refreshNotesView()
 	}
 	

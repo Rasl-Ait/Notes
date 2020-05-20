@@ -60,5 +60,30 @@ extension Note {
 								importance: improtance,
 								destructionDate: destructionDate)
 	}
+	
+	func createNoteEntity(_ model: NoteEntity ) {
+		model.uid = self.uid
+		model.title = self.title
+		model.content = self.content
+		model.improtance = self.importance.rawValue
+		model.color = self.color
+		model.destructionDate = self.destructionDate
+	}
+	
+	static func getNotes(model: NoteEntity) -> Note? {
+		guard let importance =  Importance(rawValue: model.improtance!)
+			else {
+				return nil
+		}
+		
+		return Note(
+			uid: model.uid ?? "" ,
+			title: model.title ?? "",
+			content: model.content ?? "",
+			color: model.color as! UIColor,
+			importance: importance,
+			destructionDate:  model.destructionDate)
+		
+	}
 }
 

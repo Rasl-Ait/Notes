@@ -10,7 +10,7 @@ import UIKit
 
 protocol EditView: class {
 	var note: Note? { get }
-	var database: NoteStorageProtocol! { get }
+	var database: NoteStorageProtocol? { get }
 	var color: UIColor? { get set }
 }
 
@@ -22,7 +22,7 @@ class EditViewController: UIViewController, EditView {
 	private var uid: String?
 	
 	var note: Note?
-	var database: NoteStorageProtocol!
+	var database: NoteStorageProtocol?
 	var presenter: EditViewPresenterProtocol!
 	var configurator: EditConfiguratorProtocol!
 	
